@@ -12,6 +12,7 @@
 		43BDBF59299FAE7E004C5B73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF58299FAE7E004C5B73 /* ViewController.swift */; };
 		43BDBF5E299FAE80004C5B73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBF5D299FAE80004C5B73 /* Assets.xcassets */; };
 		43BDBF69299FAE9C004C5B73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBF68299FAE9B004C5B73 /* Main.storyboard */; };
+		43BDBF6B299FAF21004C5B73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBF6A299FAF21004C5B73 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		43BDBF5D299FAE80004C5B73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43BDBF62299FAE80004C5B73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43BDBF68299FAE9B004C5B73 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		43BDBF6A299FAF21004C5B73 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,31 @@
 		43BDBF53299FAE7E004C5B73 /* Yellow submarine */ = {
 			isa = PBXGroup;
 			children = (
-				43BDBF54299FAE7E004C5B73 /* AppDelegate.swift */,
-				43BDBF56299FAE7E004C5B73 /* SceneDelegate.swift */,
+				43BDBF6D299FAF3F004C5B73 /* Support Files */,
 				43BDBF58299FAE7E004C5B73 /* ViewController.swift */,
-				43BDBF68299FAE9B004C5B73 /* Main.storyboard */,
+				43BDBF6C299FAF37004C5B73 /* View */,
 				43BDBF5D299FAE80004C5B73 /* Assets.xcassets */,
 				43BDBF62299FAE80004C5B73 /* Info.plist */,
 			);
 			path = "Yellow submarine";
+			sourceTree = "<group>";
+		};
+		43BDBF6C299FAF37004C5B73 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				43BDBF68299FAE9B004C5B73 /* Main.storyboard */,
+				43BDBF6A299FAF21004C5B73 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		43BDBF6D299FAF3F004C5B73 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				43BDBF54299FAE7E004C5B73 /* AppDelegate.swift */,
+				43BDBF56299FAE7E004C5B73 /* SceneDelegate.swift */,
+			);
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43BDBF6B299FAF21004C5B73 /* LaunchScreen.storyboard in Resources */,
 				43BDBF69299FAE9C004C5B73 /* Main.storyboard in Resources */,
 				43BDBF5E299FAE80004C5B73 /* Assets.xcassets in Resources */,
 			);
