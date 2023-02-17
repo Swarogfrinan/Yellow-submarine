@@ -24,6 +24,7 @@
 		43BDBF9C299FB3C8004C5B73 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF94299FB3C7004C5B73 /* Record.swift */; };
 		43BDBF9D299FB3C8004C5B73 /* RecordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */; };
 		43BDBFA1299FB3C8004C5B73 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF99299FB3C8004C5B73 /* Settings.swift */; };
+		43BDBFA3299FB42E004C5B73 /* submarineOst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		43BDBF94299FB3C7004C5B73 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsManager.swift; sourceTree = "<group>"; };
 		43BDBF99299FB3C8004C5B73 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = submarineOst.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				43BDBF54299FAE7E004C5B73 /* AppDelegate.swift */,
 				43BDBF56299FAE7E004C5B73 /* SceneDelegate.swift */,
+				43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			files = (
 				43BDBF6B299FAF21004C5B73 /* LaunchScreen.storyboard in Resources */,
 				43BDBF69299FAE9C004C5B73 /* Main.storyboard in Resources */,
+				43BDBFA3299FB42E004C5B73 /* submarineOst.mp3 in Resources */,
 				43BDBF5E299FAE80004C5B73 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
