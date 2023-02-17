@@ -10,9 +10,8 @@
 		43BDBF55299FAE7E004C5B73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF54299FAE7E004C5B73 /* AppDelegate.swift */; };
 		43BDBF57299FAE7E004C5B73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF56299FAE7E004C5B73 /* SceneDelegate.swift */; };
 		43BDBF59299FAE7E004C5B73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF58299FAE7E004C5B73 /* ViewController.swift */; };
-		43BDBF5C299FAE7E004C5B73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBF5A299FAE7E004C5B73 /* Main.storyboard */; };
 		43BDBF5E299FAE80004C5B73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBF5D299FAE80004C5B73 /* Assets.xcassets */; };
-		43BDBF61299FAE80004C5B73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBF5F299FAE80004C5B73 /* LaunchScreen.storyboard */; };
+		43BDBF69299FAE9C004C5B73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBF68299FAE9B004C5B73 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +19,9 @@
 		43BDBF54299FAE7E004C5B73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43BDBF56299FAE7E004C5B73 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		43BDBF58299FAE7E004C5B73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		43BDBF5B299FAE7E004C5B73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43BDBF5D299FAE80004C5B73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		43BDBF60299FAE80004C5B73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43BDBF62299FAE80004C5B73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43BDBF68299FAE9B004C5B73 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +57,8 @@
 				43BDBF54299FAE7E004C5B73 /* AppDelegate.swift */,
 				43BDBF56299FAE7E004C5B73 /* SceneDelegate.swift */,
 				43BDBF58299FAE7E004C5B73 /* ViewController.swift */,
-				43BDBF5A299FAE7E004C5B73 /* Main.storyboard */,
+				43BDBF68299FAE9B004C5B73 /* Main.storyboard */,
 				43BDBF5D299FAE80004C5B73 /* Assets.xcassets */,
-				43BDBF5F299FAE80004C5B73 /* LaunchScreen.storyboard */,
 				43BDBF62299FAE80004C5B73 /* Info.plist */,
 			);
 			path = "Yellow submarine";
@@ -125,9 +122,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43BDBF61299FAE80004C5B73 /* LaunchScreen.storyboard in Resources */,
+				43BDBF69299FAE9C004C5B73 /* Main.storyboard in Resources */,
 				43BDBF5E299FAE80004C5B73 /* Assets.xcassets in Resources */,
-				43BDBF5C299FAE7E004C5B73 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,25 +141,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		43BDBF5A299FAE7E004C5B73 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				43BDBF5B299FAE7E004C5B73 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		43BDBF5F299FAE80004C5B73 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				43BDBF60299FAE80004C5B73 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		43BDBF63299FAE80004C5B73 /* Debug */ = {
