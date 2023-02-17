@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="11p-8N-Y3A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="11p-8N-Y3A">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Launch View Controller-->
+        <!--S-->
         <scene sceneID="oja-lc-neO">
             <objects>
-                <viewController storyboardIdentifier="launchViewController" id="q2S-KH-Exs" customClass="launchViewController" customModule="submarine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="launchViewController" id="q2S-KH-Exs" customClass="S" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AcQ-h1-ngL">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ocean" translatesAutoresizingMaskIntoConstraints="NO" id="rvS-JU-SpO">
-                                <rect key="frame" x="44" y="-44" width="808" height="216.5"/>
+                                <rect key="frame" x="0.0" y="4" width="896" height="307.5"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ocean" translatesAutoresizingMaskIntoConstraints="NO" id="iwJ-cL-Kno">
-                                <rect key="frame" x="44" y="164.5" width="808" height="111"/>
+                                <rect key="frame" x="0.0" y="252" width="896" height="286"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foneGround" translatesAutoresizingMaskIntoConstraints="NO" id="sIQ-2I-Y7U">
-                                <rect key="frame" x="44" y="367.5" width="808" height="292"/>
+                                <rect key="frame" x="0.0" y="715.5" width="896" height="292"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="292" id="Ny3-vA-6Wg"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FishTwo" translatesAutoresizingMaskIntoConstraints="NO" id="swV-4v-bZv">
-                                <rect key="frame" x="239" y="256.5" width="687" height="47"/>
+                                <rect key="frame" x="199" y="395.5" width="767" height="170.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ocean" translatesAutoresizingMaskIntoConstraints="NO" id="es7-r4-7t5">
-                                <rect key="frame" x="44" y="189.5" width="808" height="100.5"/>
+                                <rect key="frame" x="0.0" y="277" width="896" height="0.0"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boatShip" translatesAutoresizingMaskIntoConstraints="NO" id="PHJ-oA-PZN">
-                                <rect key="frame" x="44" y="0.0" width="575" height="113.5"/>
+                                <rect key="frame" x="0.0" y="48" width="663" height="153"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FishTwo" translatesAutoresizingMaskIntoConstraints="NO" id="Wcl-ti-vHk">
-                                <rect key="frame" x="755" y="328" width="81" height="0.0"/>
+                                <rect key="frame" x="795" y="590.5" width="81" height="171"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="81" id="Ia9-dq-ne5"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Теперь с авто-разворотом!" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufa-1s-1fq">
-                                <rect key="frame" x="44" y="313.5" width="808" height="29"/>
+                                <rect key="frame" x="0.0" y="661.5" width="896" height="29"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="10" height="8"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fishOne" translatesAutoresizingMaskIntoConstraints="NO" id="Ugp-mT-KB7">
-                                <rect key="frame" x="60" y="189.5" width="170.5" height="116"/>
+                                <rect key="frame" x="20" y="277" width="170.5" height="376.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Ghz-Sn-pxY"/>
@@ -63,14 +63,14 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uv9-4m-nyw">
-                                <rect key="frame" x="44" y="159.5" width="718" height="0.0"/>
+                                <rect key="frame" x="0.0" y="247" width="806" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="213" id="0B2-1r-l6s"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppN-cS-hYG">
-                                <rect key="frame" x="304" y="226.5" width="129" height="0.0"/>
+                                <rect key="frame" x="260" y="314" width="129" height="51.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="NdB-GT-XN0"/>
                                 </constraints>
@@ -85,7 +85,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2E-3C-ghA">
-                                <rect key="frame" x="711" y="62.5" width="112" height="0.0"/>
+                                <rect key="frame" x="755" y="110.5" width="112" height="39.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51.5" id="EkI-J5-kte"/>
                                     <constraint firstAttribute="width" constant="112" id="tvo-ih-XKd"/>
@@ -101,7 +101,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Славянская подводная лодочка" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JY6-2e-EOn">
-                                <rect key="frame" x="44" y="145.5" width="808" height="0.0"/>
+                                <rect key="frame" x="0.0" y="233" width="896" height="0.0"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -168,10 +168,10 @@
             </objects>
             <point key="canvasLocation" x="-88.405797101449281" y="51.5625"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="submarine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" id="BYZ-38-t0r" customClass="GameViewController" customModule="Yellow_submarine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,7 +183,7 @@
                                         <rect key="frame" x="15" y="0.0" width="200" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhV-jO-7gL">
-                                                <rect key="frame" x="0.0" y="29" width="115" height="31"/>
+                                                <rect key="frame" x="0.0" y="25.5" width="115" height="34.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="music.note" catalog="system" title="Stop">
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -462,7 +462,7 @@
         <!--Settings View Controller-->
         <scene sceneID="rFz-S5-0Ug">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" id="D2i-L0-lbN" customClass="SettingsViewController" customModule="submarine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="D2i-L0-lbN" customClass="SettingsViewController" customModule="Yellow_submarine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kjC-2s-fLV">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -598,7 +598,7 @@
         <!--Table Result Vc-->
         <scene sceneID="TtG-Ir-Swl">
             <objects>
-                <viewController storyboardIdentifier="TableResultVc" id="hVR-os-pQ6" customClass="TableResultVc" customModule="submarine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TableResultVc" id="hVR-os-pQ6" customClass="TableResultVc" customModule="Yellow_submarine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Wv-if-4Vp">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -612,10 +612,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ocean" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-dw-IuD">
-                                <rect key="frame" x="0.0" y="-46" width="919" height="170.5"/>
+                                <rect key="frame" x="0.0" y="-46" width="919" height="188"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1Q-O6-dUX">
-                                <rect key="frame" x="59" y="15" width="117" height="51.5"/>
+                                <rect key="frame" x="15" y="63" width="117" height="51.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Назад">
                                     <fontDescription key="titleFontDescription" name="PTSans-Caption" family="PT Sans Caption" pointSize="32"/>
@@ -627,17 +627,17 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="1Lj-xX-tW1">
-                                <rect key="frame" x="244" y="30" width="408" height="72.5"/>
+                                <rect key="frame" x="200" y="78" width="496" height="42"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Привет" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uit-GA-bfB">
-                                        <rect key="frame" x="0.0" y="15.5" width="214.5" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="261" height="42"/>
                                         <color key="backgroundColor" red="0.32276153559999998" green="0.70235711339999995" blue="0.85615342859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izb-M7-raB">
-                                        <rect key="frame" x="216.5" y="15.5" width="191.5" height="42"/>
+                                        <rect key="frame" x="263" y="0.0" width="233" height="42"/>
                                         <color key="backgroundColor" red="0.32276153559999998" green="0.70235711339999995" blue="0.85615342859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -646,14 +646,14 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="V59-ae-xZq" customClass="tableResultVc">
-                                <rect key="frame" x="60" y="132.5" width="776" height="260.5"/>
+                                <rect key="frame" x="16" y="150" width="864" height="230"/>
                                 <color key="backgroundColor" red="0.25403383369999999" green="0.56603425740000002" blue="0.65572595600000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecordTableViewCell" id="QMp-23-5MD" customClass="RecordTableViewCell" customModule="submarine" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="776" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecordTableViewCell" id="QMp-23-5MD" customClass="RecordTableViewCell" customModule="Yellow_submarine" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="864" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.84999999999999998" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QMp-23-5MD" id="Fft-cU-eCf">
-                                            <rect key="frame" x="0.0" y="0.0" width="776" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="864" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Илюша" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjb-CQ-Pah">
@@ -669,7 +669,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qm3-fR-gvj">
-                                                    <rect key="frame" x="703" y="16" width="38" height="20.5"/>
+                                                    <rect key="frame" x="791" y="16" width="38" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -734,7 +734,7 @@
             <objects>
                 <navigationController id="11p-8N-Y3A" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="po9-0o-e7T">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="896" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -752,14 +752,14 @@
         <image name="downButtonImage" width="170.66667175292969" height="170.66667175292969"/>
         <image name="fishOne" width="170.66667175292969" height="170.66667175292969"/>
         <image name="foneGround" width="320" height="48"/>
-        <image name="music.note" catalog="system" width="97" height="128"/>
+        <image name="music.note" catalog="system" width="96" height="128"/>
         <image name="ocean" width="170.66667175292969" height="170.66667175292969"/>
         <image name="submarine" width="170.66667175292969" height="170.66667175292969"/>
         <image name="submarineThree" width="170.66667175292969" height="170.66667175292969"/>
         <image name="submarineTwo" width="170.66667175292969" height="170.66667175292969"/>
         <image name="upButtonImage" width="170.66667175292969" height="170.66667175292969"/>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
