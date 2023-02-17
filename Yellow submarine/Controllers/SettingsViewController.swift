@@ -95,7 +95,7 @@ class SettingsViewController: UIViewController {
     }
     //MARK: Navigation
     @IBAction func resultButtonPressed(_ sender: UIButton) {
-        guard let controler = self.storyboard?.instantiateViewController(withIdentifier: "TableResultVc") as? TableResultVc else {
+        guard let controler = self.storyboard?.instantiateViewController(withIdentifier: "TableResultVc") as? RecordsViewController else {
             return
     }
         //Screen rotate

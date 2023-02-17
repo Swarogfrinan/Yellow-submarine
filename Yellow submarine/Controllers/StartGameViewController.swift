@@ -11,7 +11,7 @@ var counter : Int = 0
 //MARK: Let var
 var launchTimer = Timer()
 let button = UIButton()
-class launchViewController: UIViewController {
+class StartGameViewController: UIViewController {
     //MARK: IBOutlet
     @IBOutlet weak var imageSubmarineView: UIImageView!
     @IBOutlet weak var boatImage: UIImageView!

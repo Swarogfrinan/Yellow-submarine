@@ -7,7 +7,7 @@
 
 import UIKit
 //таблица рекордов 
-class TableResultVc: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RecordsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //MARK: Let/var
     var records = RecordsManager.shared.loadRecords()
     let strOut = UserDefaults.standard.string(forKey: "name")
