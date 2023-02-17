@@ -13,6 +13,10 @@
 		43BDBF5E299FAE80004C5B73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBF5D299FAE80004C5B73 /* Assets.xcassets */; };
 		43BDBF69299FAE9C004C5B73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBF68299FAE9B004C5B73 /* Main.storyboard */; };
 		43BDBF6B299FAF21004C5B73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBF6A299FAF21004C5B73 /* LaunchScreen.storyboard */; };
+		43BDBF70299FB02D004C5B73 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF6F299FB02D004C5B73 /* GameViewController.swift */; };
+		43BDBF72299FB033004C5B73 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF71299FB033004C5B73 /* RecordsViewController.swift */; };
+		43BDBF74299FB037004C5B73 /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF73299FB037004C5B73 /* StartGameViewController.swift */; };
+		43BDBF76299FB03F004C5B73 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF75299FB03F004C5B73 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		43BDBF62299FAE80004C5B73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43BDBF68299FAE9B004C5B73 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		43BDBF6A299FAF21004C5B73 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		43BDBF6F299FB02D004C5B73 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		43BDBF71299FB033004C5B73 /* RecordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
+		43BDBF73299FB037004C5B73 /* StartGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGameViewController.swift; sourceTree = "<group>"; };
+		43BDBF75299FB03F004C5B73 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,7 @@
 				43BDBF6D299FAF3F004C5B73 /* Support Files */,
 				43BDBF58299FAE7E004C5B73 /* ViewController.swift */,
 				43BDBF6C299FAF37004C5B73 /* View */,
+				43BDBF6E299FB021004C5B73 /* Controllers */,
 				43BDBF5D299FAE80004C5B73 /* Assets.xcassets */,
 				43BDBF62299FAE80004C5B73 /* Info.plist */,
 			);
@@ -81,6 +90,17 @@
 				43BDBF56299FAE7E004C5B73 /* SceneDelegate.swift */,
 			);
 			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		43BDBF6E299FB021004C5B73 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				43BDBF6F299FB02D004C5B73 /* GameViewController.swift */,
+				43BDBF71299FB033004C5B73 /* RecordsViewController.swift */,
+				43BDBF73299FB037004C5B73 /* StartGameViewController.swift */,
+				43BDBF75299FB03F004C5B73 /* SettingsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,8 +175,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				43BDBF59299FAE7E004C5B73 /* ViewController.swift in Sources */,
+				43BDBF70299FB02D004C5B73 /* GameViewController.swift in Sources */,
 				43BDBF55299FAE7E004C5B73 /* AppDelegate.swift in Sources */,
 				43BDBF57299FAE7E004C5B73 /* SceneDelegate.swift in Sources */,
+				43BDBF74299FB037004C5B73 /* StartGameViewController.swift in Sources */,
+				43BDBF72299FB033004C5B73 /* RecordsViewController.swift in Sources */,
+				43BDBF76299FB03F004C5B73 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
