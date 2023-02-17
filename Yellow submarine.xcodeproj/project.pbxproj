@@ -25,6 +25,7 @@
 		43BDBF9D299FB3C8004C5B73 /* RecordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */; };
 		43BDBFA1299FB3C8004C5B73 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF99299FB3C8004C5B73 /* Settings.swift */; };
 		43BDBFA3299FB42E004C5B73 /* submarineOst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */; };
+		43BDBFA5299FB46F004C5B73 /* extensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBFA4299FB46F004C5B73 /* extensionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsManager.swift; sourceTree = "<group>"; };
 		43BDBF99299FB3C8004C5B73 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = submarineOst.mp3; sourceTree = "<group>"; };
+		43BDBFA4299FB46F004C5B73 /* extensionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				43BDBF89299FB33E004C5B73 /* MoveSingleTon.swift */,
 				43BDBF8B299FB343004C5B73 /* Manager.swift */,
 				43BDBF8D299FB348004C5B73 /* constans.swift */,
+				43BDBFA4299FB46F004C5B73 /* extensionView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				43BDBF74299FB037004C5B73 /* StartGameViewController.swift in Sources */,
 				43BDBF72299FB033004C5B73 /* RecordsViewController.swift in Sources */,
 				43BDBF8C299FB343004C5B73 /* Manager.swift in Sources */,
+				43BDBFA5299FB46F004C5B73 /* extensionView.swift in Sources */,
 				43BDBF76299FB03F004C5B73 /* SettingsViewController.swift in Sources */,
 				43BDBF9B299FB3C8004C5B73 /* RecordTableViewCell.swift in Sources */,
 			);
