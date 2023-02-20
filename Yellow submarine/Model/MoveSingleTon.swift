@@ -1,18 +1,13 @@
-//
-//  Func.swift
-//  submarine
-//
-import Foundation
 import UIKit
+
 let distance: CGFloat = 50
-//  Created by Ilya Vasilev on 01.02.2022.
-extension MainViewController {
+
+extension GameViewController {
+    
 enum Directions {
 case up
-    case down
-
+case down
 }
-
 
 func moveUpAndDown(directions:Directions) {
 switch directions {
@@ -27,8 +22,6 @@ if self.submarineView.frame.origin.y < 280 {
 self.submarineView.frame.origin.y += distance
 self.oxygenProgressView.frame.origin.y += distance
 }
-
-    
 }
 }
 }

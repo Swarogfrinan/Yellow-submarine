@@ -1,15 +1,6 @@
-//
-//  ViewController.swift
-//  submarine
-//
-//  Created by Ilya Vasilev on 25.01.2022.
-//
-
 import UIKit
 import AVFoundation
-import SpriteKit
 
-var player = SKSpriteNode()
 
 enum lifeOrDead {
     case lifeOn
@@ -30,38 +21,7 @@ class GameViewController: UIViewController{
             return .all
         }
     }
-    //             //movement with touch
-    //             override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    //
-    //                 let touch = touches.first! as UITouch
-    //
-    //                 let pointOfTouch = touch.location(in: self)
-    //                 let previousPointOfTouch = touch.previousLocation(in: self)
-    //
-    //                 let offsetX = pointOfTouch.x - previousPointOfTouch.x
-    //             }
-    //
-    //             func playerSetUp() {
-    //
-    //                     player = SKSpriteNode(imageNamed: "submarineTwo")
-    //                 player.position.x = frame.midX
-    //                 player.position.y = frame.minY + player.size.height * 2
-    //                 player.zPosition = 1
-    //                 player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
-    //                 player.physicsBody?.affectedByGravity = false
-    //                 player.physicsBody?.allowsRotation = false
-    //                 player.physicsBody?.categoryBitMask = PhysicsCategory.Player
-    //                 player.physicsBody?.collisionBitMask = PhysicsCategory.None
-    //                 player.physicsBody?.collisionBitMask = PhysicsCategory.EdgeBody
-    //
-    //                 //HERE!!!!!!!!!!!!!!!
-    //                 player.physicsBody?.contactTestBitMask = PhysicsCategory.Enemy | PhysicsCategory.NewLife
-    //
-    //                 player.size.width = playerSize.width
-    //                 player.size.height = playerSize.height
-    //                 addChild(player)
-    //             }
-    
+
     //MARK: IBOutlet
     //setup View
     @IBOutlet var mainView: UIView!

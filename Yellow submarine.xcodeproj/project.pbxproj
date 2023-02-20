@@ -23,7 +23,6 @@
 		43BDBF9B299FB3C8004C5B73 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF93299FB3C7004C5B73 /* RecordTableViewCell.swift */; };
 		43BDBF9C299FB3C8004C5B73 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF94299FB3C7004C5B73 /* Record.swift */; };
 		43BDBF9D299FB3C8004C5B73 /* RecordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */; };
-		43BDBFA1299FB3C8004C5B73 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF99299FB3C8004C5B73 /* Settings.swift */; };
 		43BDBFA3299FB42E004C5B73 /* submarineOst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */; };
 		43BDBFA5299FB46F004C5B73 /* extensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBFA4299FB46F004C5B73 /* extensionView.swift */; };
 /* End PBXBuildFile section */
@@ -47,7 +46,6 @@
 		43BDBF93299FB3C7004C5B73 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
 		43BDBF94299FB3C7004C5B73 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsManager.swift; sourceTree = "<group>"; };
-		43BDBF99299FB3C8004C5B73 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = submarineOst.mp3; sourceTree = "<group>"; };
 		43BDBFA4299FB46F004C5B73 /* extensionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,7 +117,6 @@
 				43BDBF93299FB3C7004C5B73 /* RecordTableViewCell.swift */,
 				43BDBF73299FB037004C5B73 /* StartGameViewController.swift */,
 				43BDBF75299FB03F004C5B73 /* SettingsViewController.swift */,
-				43BDBF99299FB3C8004C5B73 /* Settings.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -228,7 +225,6 @@
 			files = (
 				43BDBF8A299FB33E004C5B73 /* MoveSingleTon.swift in Sources */,
 				43BDBF8E299FB348004C5B73 /* constans.swift in Sources */,
-				43BDBFA1299FB3C8004C5B73 /* Settings.swift in Sources */,
 				43BDBF9C299FB3C8004C5B73 /* Record.swift in Sources */,
 				43BDBF9D299FB3C8004C5B73 /* RecordsManager.swift in Sources */,
 				43BDBF70299FB02D004C5B73 /* GameViewController.swift in Sources */,

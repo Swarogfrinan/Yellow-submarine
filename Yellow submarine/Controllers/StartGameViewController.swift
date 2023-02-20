@@ -26,9 +26,9 @@ class StartGameViewController: UIViewController {
         checkPerson()
         setImage()
        setSubmarine()
-//        setAnimate()
-//        imageSubmarineView.dropShadow()
-//        playButton.dropShadow()
+        setAnimate()
+        imageSubmarineView.dropShadow()
+        playButton.dropShadow()
         setupGesture()
     }
     
@@ -58,7 +58,7 @@ class StartGameViewController: UIViewController {
 
     //MARK: Navigation
     @IBAction func playButtonPressed(_ sender: UIButton) {
-//        startPlayGame()
+        startPlayGame()
     }
     //add swipeGesture
     func setupGesture() {
@@ -68,7 +68,7 @@ class StartGameViewController: UIViewController {
 }
     //swipe navigation
     @objc private func swipeAction() {
-//  startPlayGame()
+  startPlayGame()
 }
     
     @IBAction func menuButtonPressed(_ sender: UIButton) {

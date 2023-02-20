@@ -1,10 +1,3 @@
-//
-//  RecordsManager.swift
-//  submarine
-//
-//  Created by Ilya Vasilev on 29.04.2022.
-//
-
 import Foundation
 
 enum RecordsKeys: String {
@@ -14,20 +7,19 @@ enum RecordsKeys: String {
 class RecordsManager {
     
     static let shared = RecordsManager()
-    
     func saveRecords(_ records: Record) {
         
         var array = self.loadRecords()
         array.append(records)
-        UserDefaults.standard.set(encodable: array, forKey: RecordsKeys.recordsKey.rawValue)
+        UserDefaults.standard.set(array, forKey: RecordsKeys.recordsKey.rawValue)
         
     }
     
     func loadRecords() -> [Record] {
-        guard let records = UserDefaults.standard.value([Record].self, forKey: RecordsKeys.recordsKey.rawValue) else {
-            return []
+        guard let records = UserDefaults.standard.value(forKey: RecordsKeys.recordsKey.rawValue) else {
+            fatalError("Cannot loadRecords")
         }
-        return records
+        records
+        return [records]
     }
-//    static func lauchSubmarinePlay 
 }
