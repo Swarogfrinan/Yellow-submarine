@@ -60,7 +60,7 @@ class GameViewController: UIViewController{
     @IBOutlet weak var buttonResume: UIView!
     @IBOutlet weak var buttonResumeDopVIew: UIView!
     @IBOutlet weak var krakenImage: UIImageView!
-    @IBOutlet weak var meduzaImage: UIImageView!
+    @IBOutlet weak var jellyfishImage: UIImageView!
     @IBOutlet weak var sharkImage: UIImageView!
     
     
@@ -68,7 +68,7 @@ class GameViewController: UIViewController{
     
     //MARK: TIMERS
     private var KrakenTimer = Timer()
-    private var MeduzaTimer = Timer()
+    private var         jellyfishTimer = Timer()
     private var SharkTimer = Timer()
     private var oxygenTimer = Timer()
     private var fishTimer = Timer()
@@ -106,140 +106,49 @@ class GameViewController: UIViewController{
             self.fishOneImage.animateImageView(withDuration: 5, delay: 0.3, image: self.fishOneImage)
         })
     }
-    private func showTwoFish() {
-        print("START FUNC")
+    private func showSecondFish() {
+        print("START secondFish")
         fishTimerSecond = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 5...13), repeats: true, block: { _ in
             self.fishTwoImage.animateImageView(withDuration: 4, delay: 0.3, image: self.fishTwoImage)
             self.countFish += 1
             print("\(self.countFish) = secondFish")
         })
     }
-       
-      
-//        fishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 9...15), repeats: true, block: { _ in
-//            self.fishOneImage.moveForward(self.fishOneImage)
-//            let imageFish = UIImage(named: "fishOne")
-//            self.fishOneImage?.image = imageFish
-//            self.fishOneImage.isHidden = false
-//            UIView.animate(withDuration: 5, delay: 0.3) {
-//                self.fishOneImage.frame.origin.x -= 900
-//            } completion: {_ in
-//                self.fishOneImage.isHidden = true
-//                UIView.animate(withDuration: 0.4) {
-//                    self.fishOneImage.frame.origin.x += 900
-                    
-//                    self.countFish += 1
-//                }
-            
-//        }
-//        )}
     
-    //MARK: Show Second Fish
-//    private func showTwoFish() {
-//        fishTwoImage.dropShadow()
-//        fishTimerSecond = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...16), repeats: true, block: { _ in
-//            let imageTwoFish = UIImage(named: "FishTwo")
-//            self.fishTwoImage.image = imageTwoFish
-//            self.fishTwoImage.isHidden = false
-//            UIView.animate(withDuration: 7, delay: 0.6, options: UIView.AnimationOptions.curveEaseIn) {
-//                self.fishTwoImage.frame.origin.x -= 900
-//            } completion: {_ in
-//                self.fishTwoImage.isHidden = true
-//                UIView.animate(withDuration: 0.2) {
-//                    self.fishTwoImage.frame.origin.x += 900
-//
-//                    self.countFish += 1
-//                }
-//            }
-//        }
-//        )}
-    
-    //MARK: Show Boat
     private func showBoat() {
-        boatShipImage.dropShadowboat()
+        print("START Boat")
         boatTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...25), repeats: true, block: { _ in
-            let imageBoat = UIImage(named: "boatShip")
-            self.boatShipImage.image = imageBoat
-            self.boatShipImage.isHidden = false
-            //let height = CGFloat.random(in: 70...self.view.frame.height / 3.5)
-            //let width = height * 1.5
-            //let x = self.view.frame.width
-            //let y = self.view.frame.height
-            //let boat = UIImageView(frame: CGRect(x: x, y: y, width: width, height: height))
-            //self.view.addSubview(boat)
-            UIView.animate(withDuration: 7, delay: 1) {
-                self.boatShipImage.frame.origin.x -= 900
-                //                   obstaclesArray.append(boatView)
-                
-            } completion: {_ in
-                self.boatShipImage.isHidden = true
-                UIView.animate(withDuration: 0.3) {
-                    self.boatShipImage.frame.origin.x += 900
-                    self.countFish += 1
-                }
-            }
-        }
-        )}
-    //MARK: Show Shark
+            self.boatShipImage.animateImageView(withDuration: 7, delay: 0.3, image: self.boatShipImage)
+            self.countFish += 1
+            print("\(self.countFish) = Boat")
+        })
+    }
+    
     private func showShark() {
-        sharkImage.dropShadow()
+        print("START shark")
         SharkTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 18...45), repeats: true, block: { _ in
-            let imageSharked = UIImage(named: "Shark")
-            self.sharkImage.image = imageSharked
-            self.sharkImage.isHidden = false
-            UIView.animate(withDuration: 13, delay: 1) {
-                self.sharkImage.frame.origin.x -= 900
-            } completion: {_ in
-                self.sharkImage.isHidden = true
-                UIView.animate(withDuration: 0.3) {
-                    self.sharkImage.frame.origin.x += 900
-                    
-                    self.countFish += 1
-                    
-                }
-            }
-        }
-        )}
+            self.sharkImage.animateImageView(withDuration: 13, delay: 0.7, image: self.sharkImage)
+            self.countFish += 1
+            print("\(self.countFish) = Shark")
+        })
+    }
+    private func showJellyfish() {
+        print("START jellyfish")
+                jellyfishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...43), repeats: true, block: { _ in
+                    self.jellyfishImage.animateImageView(withDuration: 4, delay: 0.2, image: self.jellyfishImage)
+            self.countFish += 1
+            print("\(self.countFish) = jellyfish")
+        })
+    }
     
-    //MARK: Show Meduza
-    private func showMeduza() {
-        meduzaImage.dropShadow()
-        MeduzaTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...43), repeats: true, block: { _ in
-            let imageMeduza = UIImage(named: "meduza")
-            self.meduzaImage.image = imageMeduza
-            self.meduzaImage.isHidden = false
-            UIView.animate(withDuration: 4, delay: 1) {
-                self.meduzaImage.frame.origin.x -= 900
-            } completion: {_ in
-                self.meduzaImage.isHidden = true
-                UIView.animate(withDuration: 0.3) {
-                    self.meduzaImage.frame.origin.x += 900
-                    
-                    self.countFish += 1
-                    
-                }
-            }
-        }
-        )}
-    
-    //MARK: Show Kracen
-    private func showKracen() {
-        krakenImage.dropShadow()
+    private func showKraken() {
+        print("START Kraken")
         KrakenTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 80...120), repeats: true, block: { _ in
-            let imageKraken = UIImage(named: "Kracen")
-            self.krakenImage.image = imageKraken
-            self.krakenImage.isHidden = false
-            UIView.animate(withDuration: 35, delay: 6) {
-                self.krakenImage.frame.origin.x -= 900
-            } completion: {_ in
-                self.krakenImage.isHidden = true
-                UIView.animate(withDuration: 0.3) {
-                    self.krakenImage.frame.origin.x += 900
-                    self.countFish += 1
-                }
-            }
-        }
-        )}
+            self.krakenImage.animateImageView(withDuration: 25, delay: 6, image: self.krakenImage)
+            self.countFish += 1
+            print("\(self.countFish) = kraken")
+        })
+    }
     
     //MARK: RandomsNumbers
     func randomDuration(in range: ClosedRange<Double>) -> Double {
@@ -280,9 +189,9 @@ class GameViewController: UIViewController{
         audioPlayer.numberOfLoops = -1
         audioPlayer.play()
         showSubmarine()
-        self.showKracen()
+        self.showKraken()
         self.showFish()
-        self.showTwoFish()
+        self.showSecondFish()
         self.showBoat()
         self.progressFunc()
         oxygenProgressView.setProgress(1, animated: false)
@@ -292,7 +201,7 @@ class GameViewController: UIViewController{
         //        self.visualEffectBlur.isHidden = true
         //        self.buttonResumeDopVIew.isHidden = true
         self.showShark()
-        self.showMeduza()
+        self.showJellyfish()
         //      isOxygenfull = true
     }
     //MARK: Бар с кислородом
