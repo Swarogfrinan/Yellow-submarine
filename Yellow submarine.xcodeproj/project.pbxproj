@@ -25,7 +25,10 @@
 		43BDBF9C299FB3C8004C5B73 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF94299FB3C7004C5B73 /* Record.swift */; };
 		43BDBF9D299FB3C8004C5B73 /* RecordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */; };
 		43BDBFA3299FB42E004C5B73 /* submarineOst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */; };
-		43BDBFA5299FB46F004C5B73 /* extensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBFA4299FB46F004C5B73 /* extensionView.swift */; };
+		43BDBFA5299FB46F004C5B73 /* UIview + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBFA4299FB46F004C5B73 /* UIview + Extension.swift */; };
+		43F80A6429A36ECD004A9895 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F80A6329A36ECD004A9895 /* TimerModel.swift */; };
+		43F80A6629A374AA004A9895 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F80A6529A374AA004A9895 /* UIButton + Extension.swift */; };
+		43F80A6B29A37611004A9895 /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F80A6A29A37611004A9895 /* Extension + UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +52,10 @@
 		43BDBF94299FB3C7004C5B73 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsManager.swift; sourceTree = "<group>"; };
 		43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = submarineOst.mp3; sourceTree = "<group>"; };
-		43BDBFA4299FB46F004C5B73 /* extensionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensionView.swift; sourceTree = "<group>"; };
+		43BDBFA4299FB46F004C5B73 /* UIview + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIview + Extension.swift"; sourceTree = "<group>"; };
+		43F80A6329A36ECD004A9895 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		43F80A6529A374AA004A9895 /* UIButton + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
+		43F80A6A29A37611004A9895 /* Extension + UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
 		4728D2BD56212DB89B0CA547 /* Pods-Yellow submarine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yellow submarine.debug.xcconfig"; path = "Target Support Files/Pods-Yellow submarine/Pods-Yellow submarine.debug.xcconfig"; sourceTree = "<group>"; };
 		8C446E14EDBEB83AABB5FD92 /* Pods-Yellow submarine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yellow submarine.release.xcconfig"; path = "Target Support Files/Pods-Yellow submarine/Pods-Yellow submarine.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,12 +93,12 @@
 		43BDBF53299FAE7E004C5B73 /* Yellow submarine */ = {
 			isa = PBXGroup;
 			children = (
-				43BDBF6D299FAF3F004C5B73 /* Support Files */,
+				43BDBF62299FAE80004C5B73 /* Info.plist */,
 				43BDBF8F299FB3B0004C5B73 /* Model */,
 				43BDBF6C299FAF37004C5B73 /* View */,
 				43BDBF6E299FB021004C5B73 /* Controllers */,
-				43BDBF5D299FAE80004C5B73 /* Assets.xcassets */,
-				43BDBF62299FAE80004C5B73 /* Info.plist */,
+				43BDBF6D299FAF3F004C5B73 /* Support Files */,
+				43F80A6729A374C0004A9895 /* Resources */,
 			);
 			path = "Yellow submarine";
 			sourceTree = "<group>";
@@ -101,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				43BDBF68299FAE9B004C5B73 /* Main.storyboard */,
-				43BDBF6A299FAF21004C5B73 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -109,8 +114,7 @@
 		43BDBF6D299FAF3F004C5B73 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				43BDBF54299FAE7E004C5B73 /* AppDelegate.swift */,
-				43BDBF56299FAE7E004C5B73 /* SceneDelegate.swift */,
+				43F80A6829A37535004A9895 /* Application */,
 				43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */,
 			);
 			path = "Support Files";
@@ -136,7 +140,7 @@
 				43BDBF89299FB33E004C5B73 /* MoveSingleTon.swift */,
 				43BDBF8B299FB343004C5B73 /* Manager.swift */,
 				43BDBF8D299FB348004C5B73 /* constans.swift */,
-				43BDBFA4299FB46F004C5B73 /* extensionView.swift */,
+				43F80A6329A36ECD004A9895 /* TimerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +162,35 @@
 			path = Records;
 			sourceTree = "<group>";
 		};
+		43F80A6729A374C0004A9895 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				43BDBF6A299FAF21004C5B73 /* LaunchScreen.storyboard */,
+				43BDBF5D299FAE80004C5B73 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		43F80A6829A37535004A9895 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				43BDBF54299FAE7E004C5B73 /* AppDelegate.swift */,
+				43BDBF56299FAE7E004C5B73 /* SceneDelegate.swift */,
+				43F80A6929A37544004A9895 /* Extension */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		43F80A6929A37544004A9895 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				43BDBFA4299FB46F004C5B73 /* UIview + Extension.swift */,
+				43F80A6529A374AA004A9895 /* UIButton + Extension.swift */,
+				43F80A6A29A37611004A9895 /* Extension + UIImage.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		82B1013C5B7EE2282EB2C703 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,7 +205,6 @@
 				4728D2BD56212DB89B0CA547 /* Pods-Yellow submarine.debug.xcconfig */,
 				8C446E14EDBEB83AABB5FD92 /* Pods-Yellow submarine.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -187,6 +219,7 @@
 				43BDBF4D299FAE7E004C5B73 /* Sources */,
 				43BDBF4E299FAE7E004C5B73 /* Frameworks */,
 				43BDBF4F299FAE7E004C5B73 /* Resources */,
+				43F80A6229A368F0004A9895 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -245,6 +278,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		43F80A6229A368F0004A9895 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		C4B324C98C51C385E15418AB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -281,12 +331,15 @@
 				43BDBF70299FB02D004C5B73 /* GameViewController.swift in Sources */,
 				43BDBF55299FAE7E004C5B73 /* AppDelegate.swift in Sources */,
 				43BDBF9A299FB3C8004C5B73 /* Settings.swift in Sources */,
+				43F80A6629A374AA004A9895 /* UIButton + Extension.swift in Sources */,
 				43BDBF57299FAE7E004C5B73 /* SceneDelegate.swift in Sources */,
 				43BDBF74299FB037004C5B73 /* StartGameViewController.swift in Sources */,
 				43BDBF72299FB033004C5B73 /* RecordsViewController.swift in Sources */,
 				43BDBF8C299FB343004C5B73 /* Manager.swift in Sources */,
-				43BDBFA5299FB46F004C5B73 /* extensionView.swift in Sources */,
+				43BDBFA5299FB46F004C5B73 /* UIview + Extension.swift in Sources */,
+				43F80A6429A36ECD004A9895 /* TimerModel.swift in Sources */,
 				43BDBF76299FB03F004C5B73 /* SettingsViewController.swift in Sources */,
+				43F80A6B29A37611004A9895 /* Extension + UIImage.swift in Sources */,
 				43BDBF9B299FB3C8004C5B73 /* RecordTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
