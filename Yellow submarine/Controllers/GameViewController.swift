@@ -67,58 +67,10 @@ class GameViewController: UIViewController{
     
     //MARK: Аудиоплэйер
     var audioPlayer = AVAudioPlayer()
+    var counter : Int = 0
+    var records = [Record]()
     
-    //MARK: Появление существ
-    private  func showSubmarine() {
-        guard let imageSubmarine = UserDefaults.standard.value(forKey: "image") as? String else  {return}
-        if let image = SettingsViewController.loadImage(fileName: imageSubmarine) {
-            submarinePlayerImage.image = image
-        }
-    }
-    //MARK: Show First Fish
-    private func showFish() {
-        fishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 6...20), repeats: true, block: { _ in
-            self.fishOneImage.animateImageView(withDuration: 5, delay: 0.3, image: self.fishOneImage)
-        })
-    }
-    private func showSecondFish() {
-        secondFishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 5...13), repeats: true, block: { _ in
-            self.fishSecondImage.animateImageView(withDuration: 4, delay: 0.3, image: self.fishSecondImage)
-            self.countFish += 1
-            print("\(self.countFish) = secondFish")
-        })
-    }
-    
-    private func showBoat() {
-        boatTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...25), repeats: true, block: { _ in
-            self.boatShipImage.animateImageView(withDuration: 7, delay: 0.3, image: self.boatShipImage)
-            self.countFish += 1
-            print("\(self.countFish) = Boat")
-        })
-    }
-    
-    private func showShark() {
-        sharkTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 18...45), repeats: true, block: { _ in
-            self.sharkImage.animateImageView(withDuration: 13, delay: 0.7, image: self.sharkImage)
-            self.countFish += 1
-            print("\(self.countFish) = Shark")
-        })
-    }
-    private func showJellyfish() {
-        jellyfishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...43), repeats: true, block: { _ in
-            self.jellyfishImage.animateImageView(withDuration: 4, delay: 0.2, image: self.jellyfishImage)
-            self.countFish += 1
-            print("\(self.countFish) = jellyfish")
-        })
-    }
-    
-    private func showKraken() {
-        krakenTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 80...120), repeats: true, block: { _ in
-            self.krakenImage.animateImageView(withDuration: 25, delay: 6, image: self.krakenImage)
-            self.countFish += 1
-            print("\(self.countFish) = kraken")
-        })
-    }
+   
     
     //MARK: RandomsNumbers
     func randomDuration(in range: ClosedRange<Double>) -> Double {
@@ -130,6 +82,7 @@ class GameViewController: UIViewController{
     
     
     //MARK: - Lifecycle
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .landscape
@@ -137,6 +90,7 @@ class GameViewController: UIViewController{
             return .all
         }
     }
+    
     //MARK: - ViewDidLoad
     
     override func viewDidLoad() {
@@ -198,12 +152,11 @@ class GameViewController: UIViewController{
             }
         }
     }
+    
     //MARK: Счетчик рыб
     var countFish : Int = 0 {
         didSet {
             countLabel.text = "Твой счёт \(countFish)"
-            print(countFish)
-            
         }
     }
     var life: Bool = true {
@@ -213,21 +166,41 @@ class GameViewController: UIViewController{
         }
     }
     
-    //MARK: Кнопка ВВЕРХ
+    //MARK: IBAction Methods
+    
     @IBAction func swimUpButtonPressed(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5) {
             self.moveUpAndDown(directions: .up)
         }
     }
     
-    //MARK: Кнопка ВНИЗ
     @IBAction func swimDownButtonPressed(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5) {
             self.moveUpAndDown(directions: .down)
         }
     }
     
-    func saveResultGame() {
+    @IBAction func resumeGameButtonPressed(_ sender: UIButton) {
+        saveGameResults()
+        self.dismiss(animated: true, completion: nil)
+        audioPlayer.stop()
+    }
+    
+
+    @IBAction func pauseMusicButtonPressed(_ sender: UIButton) {
+        counter+=1
+        switch counter % 3 {
+        case 1:
+            audioPlayer.stop()
+        case 2:
+            audioPlayer.play()
+        default :
+            break
+        }
+    }
+    //MARK: Private Methods
+    
+   private func saveResultGame() {
         //дата рекорда
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
@@ -242,7 +215,7 @@ class GameViewController: UIViewController{
     
     //29.01
     //MARK: конец игры
-    func loseGame(lifeorDead: lifeOrDead) {
+  private func loseGame(lifeorDead: lifeOrDead) {
         switch lifeorDead {
         case .lifeOn:
             lose = false
@@ -258,7 +231,7 @@ class GameViewController: UIViewController{
         }
     }
     
-    func checkGroundIntersection() {
+   private func checkGroundIntersection() {
         
         if submarinePlayerView.frame.origin.y >= 270{
             lose = true
@@ -270,7 +243,8 @@ class GameViewController: UIViewController{
             loseGame(lifeorDead: .deadOff)
         }
     }
-    func saveGameResults() {
+        
+   private func saveGameResults() {
         
         let date = Date()
         let formatter = DateFormatter()
@@ -288,45 +262,59 @@ class GameViewController: UIViewController{
         
     }
     
-    var records = [Record]()
-    @IBAction func resumeButtomPressed(_ sender: UIButton) {
-        saveGameResults()
-        self.dismiss(animated: true, completion: nil)
-        audioPlayer.stop()
-    }
+    //MARK: Появление существ
     
-    
-    //MARK: Кнопка Музыка (Resume and stop)
-    var counter : Int = 0
-    @IBAction func stopButtonPressed(_ sender: UIButton) {
-        counter+=1
-        switch counter % 3 {
-        case 1:
-            audioPlayer.stop()
-        case 2:
-            audioPlayer.play()
-        default :
-            break
-            
+    private  func showSubmarine() {
+        guard let imageSubmarine = UserDefaults.standard.value(forKey: "image") as? String else  {return}
+        if let image = SettingsViewController.loadImage(fileName: imageSubmarine) {
+            submarinePlayerImage.image = image
         }
-        
-        //    let longPressGestureRecogn = UILongPressGestureRecognizer(target: self, action: #selector(addAnotation(press:)))
-        //    longPressGestureRecogn.minimumPressDuration = 1.0
-        //    submarineView.addGestureRecognizer(longPressGestureRecogn)
-        //}
-        //
-        //    func addAnotation (press:UILongPressGestureRecognizer) {
-        //        if press.state ==.began {
-        //        {
-        //            let location = press.location(in: mainView)
-        //            let coordinates = mainView.convert(location, toCoordinateFrom : mainView)
-        //            let annotation =
-        //
-        //        }
-        //
-        //
-        
-        
     }
-}
+ 
+    private func showFish() {
+        fishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 6...20), repeats: true, block: { _ in
+            self.fishOneImage.animateImageView(withDuration: 5, delay: 0.3, image: self.fishOneImage)
+        })
+    }
+    private func showSecondFish() {
+        secondFishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 5...13), repeats: true, block: { _ in
+            self.fishSecondImage.animateImageView(withDuration: 4, delay: 0.3, image: self.fishSecondImage)
+            self.countFish += 1
+            print("\(self.countFish) = secondFish")
+        })
+    }
+    
+    private func showBoat() {
+        boatTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...25), repeats: true, block: { _ in
+            self.boatShipImage.animateImageView(withDuration: 7, delay: 0.3, image: self.boatShipImage)
+            self.countFish += 1
+            print("\(self.countFish) = Boat")
+        })
+    }
+    
+    private func showShark() {
+        sharkTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 18...45), repeats: true, block: { _ in
+            self.sharkImage.animateImageView(withDuration: 13, delay: 0.7, image: self.sharkImage)
+            self.countFish += 1
+            print("\(self.countFish) = Shark")
+        })
+    }
+    private func showJellyfish() {
+        jellyfishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...43), repeats: true, block: { _ in
+            self.jellyfishImage.animateImageView(withDuration: 4, delay: 0.2, image: self.jellyfishImage)
+            self.countFish += 1
+            print("\(self.countFish) = jellyfish")
+        })
+    }
+    
+    private func showKraken() {
+        krakenTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 80...120), repeats: true, block: { _ in
+            self.krakenImage.animateImageView(withDuration: 25, delay: 6, image: self.krakenImage)
+            self.countFish += 1
+            print("\(self.countFish) = kraken")
+        })
+    }
+        }
+    
+
 
