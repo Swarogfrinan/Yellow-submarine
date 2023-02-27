@@ -72,12 +72,12 @@ class StartGameViewController: UIViewController {
 }
     
     @IBAction func menuButtonPressed(_ sender: UIButton) {
-        guard let controler = self.storyboard?.instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController else {
-            return
-        }
+        guard let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController else {
+                 return
+             }
         
-        controler.modalTransitionStyle = .crossDissolve
-                controler.modalPresentationStyle = .fullScreen
-                self.present (controler, animated: true, completion: nil)
+        controller.modalTransitionStyle = .crossDissolve
+                controller.modalPresentationStyle = .fullScreen
+                self.present (controller, animated: true, completion: nil)
     }
 }

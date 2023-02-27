@@ -26,6 +26,7 @@
 		43BDBF9D299FB3C8004C5B73 /* RecordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */; };
 		43BDBFA3299FB42E004C5B73 /* submarineOst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */; };
 		43BDBFA5299FB46F004C5B73 /* UIview + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBFA4299FB46F004C5B73 /* UIview + Extension.swift */; };
+		43F0989F29ACEE6A00DD4386 /* StartController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F0989E29ACEE6A00DD4386 /* StartController.storyboard */; };
 		43F80A6429A36ECD004A9895 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F80A6329A36ECD004A9895 /* TimerModel.swift */; };
 		43F80A6629A374AA004A9895 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F80A6529A374AA004A9895 /* UIButton + Extension.swift */; };
 		43F80A6B29A37611004A9895 /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F80A6A29A37611004A9895 /* Extension + UIImage.swift */; };
@@ -53,6 +54,7 @@
 		43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsManager.swift; sourceTree = "<group>"; };
 		43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = submarineOst.mp3; sourceTree = "<group>"; };
 		43BDBFA4299FB46F004C5B73 /* UIview + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIview + Extension.swift"; sourceTree = "<group>"; };
+		43F0989E29ACEE6A00DD4386 /* StartController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartController.storyboard; sourceTree = "<group>"; };
 		43F80A6329A36ECD004A9895 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		43F80A6529A374AA004A9895 /* UIButton + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 		43F80A6A29A37611004A9895 /* Extension + UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				43BDBF68299FAE9B004C5B73 /* Main.storyboard */,
+				43F0989E29ACEE6A00DD4386 /* StartController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				43BDBF6B299FAF21004C5B73 /* LaunchScreen.storyboard in Resources */,
 				43BDBF69299FAE9C004C5B73 /* Main.storyboard in Resources */,
 				43BDBFA3299FB42E004C5B73 /* submarineOst.mp3 in Resources */,
+				43F0989F29ACEE6A00DD4386 /* StartController.storyboard in Resources */,
 				43BDBF5E299FAE80004C5B73 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,7 +478,7 @@
 				INFOPLIST_FILE = "Yellow submarine/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = StartController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -484,9 +488,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Frinantelin.com.Yellow-submarine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -503,7 +510,7 @@
 				INFOPLIST_FILE = "Yellow submarine/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = StartController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -513,9 +520,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Frinantelin.com.Yellow-submarine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

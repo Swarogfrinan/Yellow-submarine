@@ -7,7 +7,7 @@ class Manager: StartGameViewController {
     
 }
 
-//MARK: Extension + LaunchViewController
+//MARK: Extension + StartGameViewController
 extension StartGameViewController {
     
     //MARK: Action
@@ -30,13 +30,13 @@ extension StartGameViewController {
                 }
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                
-                guard let controler = self.storyboard?.instantiateViewController(withIdentifier: "GameViewController") as? GameViewController else {
+           guard let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as? GameViewController else {
                     return
                 }
-                controler.modalTransitionStyle = .flipHorizontal
-                controler.modalPresentationStyle = .fullScreen
-                self.present (controler, animated: true, completion: nil)
+                
+                controller.modalTransitionStyle = .flipHorizontal
+                controller.modalPresentationStyle = .fullScreen
+                self.present(controller, animated: true, completion: nil)
             }
         default :
             break
