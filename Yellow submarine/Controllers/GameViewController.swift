@@ -94,7 +94,6 @@ class GameViewController: UIViewController{
     //MARK: Появление существ
     
     private  func showSubmarine() {
-        //                          let submarineViewPersonal = UIImage(named: "image")
         guard let imageSubmarine = UserDefaults.standard.value(forKey: "image") as? String else  {return}
         if let image = SettingsViewController.loadImage(fileName: imageSubmarine) {
             submarineImage.image = image
@@ -102,43 +101,58 @@ class GameViewController: UIViewController{
     }
     //MARK: Show First Fish
     private func showFish() {
-        fishOneImage.dropShadow()
-        fishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 9...15), repeats: true, block: { _ in
-            let imageFish = UIImage(named: "fishOne")
-            self.fishOneImage?.image = imageFish
-            self.fishOneImage.isHidden = false
-            UIView.animate(withDuration: 5, delay: 0.3) {
-                self.fishOneImage.frame.origin.x -= 900
-            } completion: {_ in
-                self.fishOneImage.isHidden = true
-                UIView.animate(withDuration: 0.4) {
-                    self.fishOneImage.frame.origin.x += 900
-                    
-                    self.countFish += 1
-                    //              self.countLabel.text = "Твой счёт \(self.countFish)"
-                }
-            }
-        }
-        )}
-    //MARK: Show Second Fish
+        print("START FUNC")
+        fishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 6...20), repeats: true, block: { _ in
+            self.fishOneImage.animateImageView(withDuration: 5, delay: 0.3, image: self.fishOneImage)
+        })
+    }
     private func showTwoFish() {
-        fishTwoImage.dropShadow()
-        fishTimerSecond = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...16), repeats: true, block: { _ in
-            let imageTwoFish = UIImage(named: "FishTwo")
-            self.fishTwoImage.image = imageTwoFish
-            self.fishTwoImage.isHidden = false
-            UIView.animate(withDuration: 7, delay: 0.6, options: UIView.AnimationOptions.curveEaseIn) {
-                self.fishTwoImage.frame.origin.x -= 900
-            } completion: {_ in
-                self.fishTwoImage.isHidden = true
-                UIView.animate(withDuration: 0.2) {
-                    self.fishTwoImage.frame.origin.x += 900
+        print("START FUNC")
+        fishTimerSecond = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 5...13), repeats: true, block: { _ in
+            self.fishTwoImage.animateImageView(withDuration: 4, delay: 0.3, image: self.fishTwoImage)
+            self.countFish += 1
+            print("\(self.countFish) = secondFish")
+        })
+    }
+       
+      
+//        fishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 9...15), repeats: true, block: { _ in
+//            self.fishOneImage.moveForward(self.fishOneImage)
+//            let imageFish = UIImage(named: "fishOne")
+//            self.fishOneImage?.image = imageFish
+//            self.fishOneImage.isHidden = false
+//            UIView.animate(withDuration: 5, delay: 0.3) {
+//                self.fishOneImage.frame.origin.x -= 900
+//            } completion: {_ in
+//                self.fishOneImage.isHidden = true
+//                UIView.animate(withDuration: 0.4) {
+//                    self.fishOneImage.frame.origin.x += 900
                     
-                    self.countFish += 1
-                }
-            }
-        }
-        )}
+//                    self.countFish += 1
+//                }
+            
+//        }
+//        )}
+    
+    //MARK: Show Second Fish
+//    private func showTwoFish() {
+//        fishTwoImage.dropShadow()
+//        fishTimerSecond = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...16), repeats: true, block: { _ in
+//            let imageTwoFish = UIImage(named: "FishTwo")
+//            self.fishTwoImage.image = imageTwoFish
+//            self.fishTwoImage.isHidden = false
+//            UIView.animate(withDuration: 7, delay: 0.6, options: UIView.AnimationOptions.curveEaseIn) {
+//                self.fishTwoImage.frame.origin.x -= 900
+//            } completion: {_ in
+//                self.fishTwoImage.isHidden = true
+//                UIView.animate(withDuration: 0.2) {
+//                    self.fishTwoImage.frame.origin.x += 900
+//
+//                    self.countFish += 1
+//                }
+//            }
+//        }
+//        )}
     
     //MARK: Show Boat
     private func showBoat() {
