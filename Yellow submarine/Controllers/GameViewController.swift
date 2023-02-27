@@ -14,109 +14,82 @@ class GameViewController: UIViewController{
     override var shouldAutorotate: Bool {
         return true
     }
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .landscape
-        } else {
-            return .all
-        }
-    }
-
-    //MARK: IBOutlet
-    //setup View
-    @IBOutlet var mainView: UIView!
-    @IBOutlet weak var centralPlayView: UIView!
-    @IBOutlet weak var buttonsBorderView: UIView!
     
-    @IBOutlet weak var groundView: UIView!
-    @IBOutlet weak var oceanView: UIView!
-    @IBOutlet weak var boatView: UIView!
-    @IBOutlet weak var skyView: UIView!
-    @IBOutlet weak var upButton: UIButton!
-    @IBOutlet weak var fishTwoView: UIView!
-    @IBOutlet weak var fishOneView: UIView!
+    //MARK: - IBOutlet Playing field
+    @IBOutlet weak var topSkyView: UIView!
+    @IBOutlet weak var gameView: UIView!
+    @IBOutlet weak var botGroundView: UIView!
+    
+    @IBOutlet weak var dyingBlurView: UIVisualEffectView!
+    @IBOutlet weak var resumeGameButton: UIButton!
+    
     @IBOutlet weak var submarineView: UIView!
-    @IBOutlet weak var upButtonbutton: UIButton!
-    @IBOutlet weak var downButtonbutton: UIButton!
-    @IBOutlet weak var behaviorSubmarine: UIView?
-    @IBOutlet weak var behaviorFishOne: UIView?
-    @IBOutlet weak var visualEffectBlur: UIVisualEffectView!
+    
+    @IBOutlet weak var swimUpButton: UIButton!
+    @IBOutlet weak var swimDownButton: UIButton!
+    @IBOutlet weak var pauseMusicButton: UIButton!
     @IBOutlet weak var countLabel: UILabel!
-    //MARK: IBOutlet images
     
-    
-    @IBOutlet weak var fishTwoImage: UIImageView!
-    @IBOutlet weak var fishOneImage: UIImageView!
-    @IBOutlet weak var submarineImage: UIImageView!
-    @IBOutlet weak var boatShipImage: UIImageView!
-    @IBOutlet weak var oceanFoneImage: UIImageView!
-    @IBOutlet weak var groundFoneImage: UIImageView!
-    @IBOutlet weak var buttonUpImage: UIImageView!
-    @IBOutlet weak var buttonDownImage: UIImageView!
+    //MARK: - IBOutlet Game Enemies
+    ///Player View
+    @IBOutlet weak var submarinePlayerView: UIView!
+    @IBOutlet weak var submarinePlayerImage: UIImageView!
     @IBOutlet weak var oxygenProgressView: UIProgressView!
-    @IBOutlet var UILongPressGestureOutlet: UILongPressGestureRecognizer!
-    //29.01 resume button
-    @IBOutlet weak var downButton: UIButton!
-    @IBOutlet weak var buttonResume: UIView!
-    @IBOutlet weak var buttonResumeDopVIew: UIView!
-    @IBOutlet weak var krakenImage: UIImageView!
+    ///EnemiesView
+    @IBOutlet weak var fishOneImage: UIImageView!
+    @IBOutlet weak var fishSecondImage: UIImageView!
+    @IBOutlet weak var boatShipImage: UIImageView!
     @IBOutlet weak var jellyfishImage: UIImageView!
     @IBOutlet weak var sharkImage: UIImageView!
+    @IBOutlet weak var krakenImage: UIImageView!
     
     
-    //MARK: let/var
+    private var oxygenView = UIView()
     
     //MARK: TIMERS
-    private var KrakenTimer = Timer()
-    private var         jellyfishTimer = Timer()
-    private var SharkTimer = Timer()
-    private var oxygenTimer = Timer()
+    
     private var fishTimer = Timer()
-    private var fishTimerSecond = Timer()
+    private var secondFishTimer = Timer()
+    private var krakenTimer = Timer()
+    private var jellyfishTimer = Timer()
+    private var sharkTimer = Timer()
     private var boatTimer = Timer()
-    private var oxygenView = UIView()
-    private var directions: Directions = .down
+    private var oxygenTimer = Timer()
+    
+    
+    
+    //MARK: - State
     private var lose = false
-    //     let distance: CGFloat = 50
     private var flagFish = true
     private var flagBoat = true
     private var flagMove = true
-    
-    
-    //зачем? столкновения
-    var animator: UIDynamicAnimator?
-    //MARK: Столкновения
-    //попытка сделать столкновения
-    @IBOutlet var obstact: [UIView]!
+    private var directions: Directions = .down
     
     //MARK: Аудиоплэйер
     var audioPlayer = AVAudioPlayer()
-    //MARK: Появление существ
     
+    //MARK: Появление существ
     private  func showSubmarine() {
         guard let imageSubmarine = UserDefaults.standard.value(forKey: "image") as? String else  {return}
         if let image = SettingsViewController.loadImage(fileName: imageSubmarine) {
-            submarineImage.image = image
+            submarinePlayerImage.image = image
         }
     }
     //MARK: Show First Fish
     private func showFish() {
-        print("START FUNC")
         fishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 6...20), repeats: true, block: { _ in
             self.fishOneImage.animateImageView(withDuration: 5, delay: 0.3, image: self.fishOneImage)
         })
     }
     private func showSecondFish() {
-        print("START secondFish")
-        fishTimerSecond = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 5...13), repeats: true, block: { _ in
-            self.fishTwoImage.animateImageView(withDuration: 4, delay: 0.3, image: self.fishTwoImage)
+        secondFishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 5...13), repeats: true, block: { _ in
+            self.fishSecondImage.animateImageView(withDuration: 4, delay: 0.3, image: self.fishSecondImage)
             self.countFish += 1
             print("\(self.countFish) = secondFish")
         })
     }
     
     private func showBoat() {
-        print("START Boat")
         boatTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...25), repeats: true, block: { _ in
             self.boatShipImage.animateImageView(withDuration: 7, delay: 0.3, image: self.boatShipImage)
             self.countFish += 1
@@ -125,25 +98,22 @@ class GameViewController: UIViewController{
     }
     
     private func showShark() {
-        print("START shark")
-        SharkTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 18...45), repeats: true, block: { _ in
+        sharkTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 18...45), repeats: true, block: { _ in
             self.sharkImage.animateImageView(withDuration: 13, delay: 0.7, image: self.sharkImage)
             self.countFish += 1
             print("\(self.countFish) = Shark")
         })
     }
     private func showJellyfish() {
-        print("START jellyfish")
-                jellyfishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...43), repeats: true, block: { _ in
-                    self.jellyfishImage.animateImageView(withDuration: 4, delay: 0.2, image: self.jellyfishImage)
+        jellyfishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...43), repeats: true, block: { _ in
+            self.jellyfishImage.animateImageView(withDuration: 4, delay: 0.2, image: self.jellyfishImage)
             self.countFish += 1
             print("\(self.countFish) = jellyfish")
         })
     }
     
     private func showKraken() {
-        print("START Kraken")
-        KrakenTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 80...120), repeats: true, block: { _ in
+        krakenTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 80...120), repeats: true, block: { _ in
             self.krakenImage.animateImageView(withDuration: 25, delay: 6, image: self.krakenImage)
             self.countFish += 1
             print("\(self.countFish) = kraken")
@@ -158,34 +128,27 @@ class GameViewController: UIViewController{
         return(Double.random(in: 11...120))
     }
     
-    //MARK: lifecycle
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
+    
+    //MARK: - Lifecycle
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .landscape
+        } else {
+            return .all
+        }
     }
+    //MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //animated
-        animator = UIDynamicAnimator(referenceView: self.view)
         
-        //        var collisionBehavior: UICollisionBehavior
-        
-        let Boundries = UICollisionBehavior (items: [behaviorSubmarine!, behaviorFishOne!])
-        Boundries.translatesReferenceBoundsIntoBoundary = true
-        let gravity = UIGravityBehavior(items: [behaviorSubmarine!, behaviorFishOne!])
-        let directions = CGVector(dx: 0, dy: 0)
-        gravity.gravityDirection = directions
-        animator?.addBehavior(Boundries)
-        animator?.addBehavior(Boundries)
-        //        collisionBehavior = UICollisionBehavior(items: [])
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "submarineOst", ofType: "mp3")!))
             audioPlayer.prepareToPlay()
-        }catch{
+        } catch {
+            fatalError("Game music cannot be played")
         }
         
-        //MARK: Запуск всего
         audioPlayer.numberOfLoops = -1
         audioPlayer.play()
         showSubmarine()
@@ -196,21 +159,20 @@ class GameViewController: UIViewController{
         self.progressFunc()
         oxygenProgressView.setProgress(1, animated: false)
         self.loseGame(lifeorDead: .lifeOn)
-        //                 self.visualEffectBlur.alpha = 0
-        //                 self.buttonResumeDopVIew.alpha = 0
-        //        self.visualEffectBlur.isHidden = true
-        //        self.buttonResumeDopVIew.isHidden = true
+        
         self.showShark()
         self.showJellyfish()
-        //      isOxygenfull = true
+        
     }
+    
     //MARK: Бар с кислородом
+    
     func progressFunc() {
         oxygenTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
             if self.oxygenProgressView.progress != 0 {
                 UIView.animate(withDuration: 2) {
                     self.oxygenProgressView.progress -= 1 / 10
-                    if self.submarineView.frame.origin.y < -150 {
+                    if self.submarinePlayerView.frame.origin.y < -150 {
                         self.oxygenProgressView.progress += 3/10
                     }
                     
@@ -231,7 +193,7 @@ class GameViewController: UIViewController{
     //MARK: Пополнение кислорода
     var isOxygenfull: Bool = true {
         didSet {
-            if submarineView.frame.origin.y < -140 {
+            if submarinePlayerView.frame.origin.y < -140 {
                 self.oxygenProgressView.progress += 1
             }
         }
@@ -246,29 +208,26 @@ class GameViewController: UIViewController{
     }
     var life: Bool = true {
         didSet{
-            checkIntersection()
+            //            checkIntersection()
             checkGroundIntersection()
         }
     }
     
-    
-    
-    
     //MARK: Кнопка ВВЕРХ
-    @IBAction func upButtonPressed(_ sender: UIButton) {
+    @IBAction func swimUpButtonPressed(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5) {
             self.moveUpAndDown(directions: .up)
         }
     }
     
     //MARK: Кнопка ВНИЗ
-    @IBAction func DownButtonPressed(_ sender: UIButton) {
+    @IBAction func swimDownButtonPressed(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5) {
             self.moveUpAndDown(directions: .down)
         }
     }
     
-    func ResultSchore() {
+    func saveResultGame() {
         //дата рекорда
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
@@ -287,42 +246,24 @@ class GameViewController: UIViewController{
         switch lifeorDead {
         case .lifeOn:
             lose = false
-            self.visualEffectBlur.alpha = 0
-            self.buttonResumeDopVIew.alpha = 0
+            self.dyingBlurView.alpha = 0
+            self.resumeGameButton.alpha = 0
         case .deadOff:
             lose = true
-            self.visualEffectBlur.alpha = 1
-            self.buttonResumeDopVIew.alpha = 1
-            print(countFish)
-            ResultSchore()
+            self.dyingBlurView.alpha = 1
+            self.resumeGameButton.alpha = 1
+            print("Final count = \(countFish)")
+            saveResultGame()
             
         }
     }
     
-    private func checkIntersection() {
-        //for obstacle in obstaclesArray {
-        if let submarineFrame = submarineView.layer.presentation()?.frame{
-            if let BoatFrame = boatView.layer.presentation()?.frame{
-                if let KrakenFrame = krakenImage.layer.presentation()?.frame{
-                    if let FishFrame = fishOneView.layer.presentation()?.frame{
-                        if submarineFrame.intersects(BoatFrame) || submarineFrame.intersects(KrakenFrame) || submarineFrame.intersects(FishFrame)  {
-                            lose=true
-                        }
-                        if lose {
-                            loseGame(lifeorDead: .deadOff)
-                        }
-                    }
-                }
-            }
-        }
-    }
-    //}
     func checkGroundIntersection() {
         
-        if submarineView.frame.origin.y >= 270{
+        if submarinePlayerView.frame.origin.y >= 270{
             lose = true
         }
-        if submarineView.frame.origin.y + submarineView.frame.height >= self.centralPlayView.frame.height {
+        if submarinePlayerView.frame.origin.y + submarinePlayerView.frame.height >= self.gameView.frame.height {
             lose = true
         }
         if lose{
