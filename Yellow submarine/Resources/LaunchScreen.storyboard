@@ -105,10 +105,10 @@
                     <connections>
                         <outlet property="boatImage" destination="9Pi-Bq-dkt" id="sKO-fE-JDZ"/>
                         <outlet property="fishImage" destination="9f7-Jo-d69" id="ER6-ek-zdI"/>
-                        <outlet property="fishOneImage" destination="1rN-nN-dLn" id="Xk7-gQ-yPO"/>
-                        <outlet property="fishSecondImage" destination="cuT-RK-iNf" id="gsh-AV-Fo5"/>
-                        <outlet property="imageSubmarineView" destination="96W-ZG-2BW" id="5In-y0-AZb"/>
                         <outlet property="playButton" destination="kY7-2M-hwQ" id="1VF-4g-5Os"/>
+                        <outlet property="playerSubmarineImage" destination="96W-ZG-2BW" id="5In-y0-AZb"/>
+                        <outlet property="secondFishImage" destination="cuT-RK-iNf" id="gsh-AV-Fo5"/>
+                        <outlet property="thirdFishImage" destination="1rN-nN-dLn" id="Xk7-gQ-yPO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -1,83 +1,113 @@
-//
-//  launchViewController.swift
-//  submarine
-//
-//  Created by Ilya Vasilev on 26.01.2022.
-//
-
 import UIKit
-//import CoreMedia
-var counter : Int = 0
-//MARK: Let var
-var launchTimer = Timer()
-let button = UIButton()
+
+
+
 class StartGameViewController: UIViewController {
-    //MARK: IBOutlet
-    @IBOutlet weak var imageSubmarineView: UIImageView!
+    
+    // MARK: - Constans
+    var counter : Int = 0
+    // MARK: - IBOutlet
+    
+    @IBOutlet weak var playerSubmarineImage: UIImageView!
     @IBOutlet weak var boatImage: UIImageView!
     @IBOutlet weak var fishImage: UIImageView!
-    @IBOutlet weak var fishSecondImage: UIImageView!
+    @IBOutlet weak var secondFishImage: UIImageView!
+    @IBOutlet weak var thirdFishImage: UIImageView!
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var fishOneImage: UIImageView!
     
     //MARK: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkPerson()
-        setImage()
-       setSubmarine()
-        setAnimate()
-        imageSubmarineView.dropShadow()
-        playButton.dropShadow()
+        setSubmarineFromSettings()
+        setupAnimation()
         setupGesture()
+        playerSubmarineImage.dropShadow()
+        playButton.dropShadow()
     }
     
-//MARK: Action
-    func checkPerson() {
-        let meduza = UIImage(named: "meduza")
-        self.imageSubmarineView.image = meduza
-    }
-
-    func setSubmarine() {
-        guard let imageSubmarine = UserDefaults.standard.value(forKey: "image") as? String else  {return}
-        if let image = SettingsViewController.loadImage(fileName: imageSubmarine) {
-            imageSubmarineView.image = image
-    }
-    }
     
-    func setImage() {
-        let imageFishTwoLaunch = UIImage(named: "FishTwo")
-        let imageSecond = UIImage(named: "FishSecond")
-        let oneLaunch = UIImage(named: "fishOne")
-        let imageBoat = UIImage(named: "boatShip")
-        self.boatImage.image = imageBoat
-        self.fishOneImage.image = oneLaunch
-        self.fishSecondImage.image = imageSecond
-        self.fishImage.image = imageFishTwoLaunch
-    }
-
-    //MARK: Navigation
+    //MARK: IBAction Methods
+    
     @IBAction func playButtonPressed(_ sender: UIButton) {
         startPlayGame()
     }
-    //add swipeGesture
-    func setupGesture() {
-    let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector (swipeAction))
-        swipeGesture.direction = .right
-        view.addGestureRecognizer(swipeGesture)
-}
-    //swipe navigation
-    @objc private func swipeAction() {
-  startPlayGame()
-}
     
     @IBAction func menuButtonPressed(_ sender: UIButton) {
         guard let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController else {
-                 return
-             }
-        
+            return
+        }
         controller.modalTransitionStyle = .crossDissolve
-                controller.modalPresentationStyle = .fullScreen
-                self.present (controller, animated: true, completion: nil)
+        controller.modalPresentationStyle = .fullScreen
+        self.present (controller, animated: true, completion: nil)
     }
 }
+
+
+//MARK: - Methods
+
+private extension StartGameViewController {
+    
+    @objc private func swipeAction() {
+        startPlayGame()
+    }
+    private func setSubmarineFromSettings() {
+        guard let imageSubmarine = UserDefaults.standard.value(forKey: "submarineImage") as? String else  { return }
+        if let image = SettingsViewController.loadImage(fileName: imageSubmarine) {
+            playerSubmarineImage.image = image
+        }
+    }
+    private func setupAnimation() {
+         Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [self] _ in
+            playerSubmarineImage.setAfkAnimate(withDuration: 0.4, delay: 0)
+            fishImage.setAfkAnimate(withDuration: 0.4, delay: 0)
+            secondFishImage.setAfkAnimate(withDuration: 0.4, delay: 0)
+            thirdFishImage.setAfkAnimate(withDuration: 0.4, delay: 0)
+        })
+        
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
+            self.boatImage.setAfkAnimateBoat(image: self.boatImage)
+        }
+    }
+    
+    private func setupGesture() {
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector (swipeAction))
+        swipeGesture.direction = .right
+        view.addGestureRecognizer(swipeGesture)
+    }
+    
+    func startPlayGame() {
+        counter += 1
+        switch counter % 2 {
+        case 1 :
+            UIView.animate(withDuration: 0.3) {
+                self.playButton.alpha = 0
+            }
+            
+            UIView.animate(withDuration: 2) {
+                self.playerSubmarineImage.frame.origin.x += 600
+            } completion: {_ in
+                UIView.animate(withDuration: 4) {
+                    self.playerSubmarineImage.isHidden = true
+                    self.playerSubmarineImage.frame.origin.x -= 600
+                    self.playerSubmarineImage.isHidden = false
+                    self.playButton.alpha = 1
+                }
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                guard let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as? GameViewController else {
+                    return
+                }
+                
+                controller.modalTransitionStyle = .flipHorizontal
+                controller.modalPresentationStyle = .fullScreen
+                self.present(controller, animated: true, completion: nil)
+            }
+        default :
+            break
+        }
+    }
+}
+
+

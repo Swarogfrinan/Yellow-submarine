@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="15" width="393" height="336.33333333333331"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ocean" translatesAutoresizingMaskIntoConstraints="NO" id="icw-UG-2BP">
-                                <rect key="frame" x="0.0" y="275" width="393" height="254.66666666666663"/>
+                                <rect key="frame" x="0.0" y="275" width="393" height="255"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foneGround" translatesAutoresizingMaskIntoConstraints="NO" id="sKi-dR-ByL">
                                 <rect key="frame" x="0.0" y="707.33333333333337" width="393" height="292"/>
@@ -29,7 +29,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FishTwo" translatesAutoresizingMaskIntoConstraints="NO" id="6AM-7P-1f7">
-                                <rect key="frame" x="195" y="435.33333333333331" width="272" height="122.33333333333331"/>
+                                <rect key="frame" x="195" y="435.33333333333331" width="272" height="122.66666666666669"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ocean" translatesAutoresizingMaskIntoConstraints="NO" id="4D2-B9-7aD">
@@ -40,7 +40,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FishTwo" translatesAutoresizingMaskIntoConstraints="NO" id="e8j-5z-92a">
-                                <rect key="frame" x="296" y="582" width="81" height="171"/>
+                                <rect key="frame" x="296" y="582.33333333333337" width="81" height="170.66666666666663"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="81" id="jBd-Kf-bwz"/>
@@ -157,10 +157,10 @@
                     <connections>
                         <outlet property="boatImage" destination="GhW-ZJ-iU5" id="tzw-X0-Een"/>
                         <outlet property="fishImage" destination="6AM-7P-1f7" id="4aM-8Y-DhT"/>
-                        <outlet property="fishOneImage" destination="iEU-Sh-gKb" id="rWN-Qz-bQh"/>
-                        <outlet property="fishSecondImage" destination="e8j-5z-92a" id="a4a-Hj-PJQ"/>
-                        <outlet property="imageSubmarineView" destination="seL-37-tun" id="BtP-1h-klM"/>
                         <outlet property="playButton" destination="FjT-NQ-c0Q" id="C5F-B4-bUg"/>
+                        <outlet property="playerSubmarineImage" destination="seL-37-tun" id="BtP-1h-klM"/>
+                        <outlet property="secondFishImage" destination="e8j-5z-92a" id="a4a-Hj-PJQ"/>
+                        <outlet property="thirdFishImage" destination="iEU-Sh-gKb" id="rWN-Qz-bQh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFr-rP-4DC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
