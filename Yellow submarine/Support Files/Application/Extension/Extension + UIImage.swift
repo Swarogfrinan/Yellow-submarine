@@ -36,10 +36,10 @@ extension UIImageView {
            })
        }
     
-    func setAfkAnimate(withDuration duration: Double, delay: Double) {
-        UIView.animate(withDuration: duration, delay: delay, animations: {
+    func setAfkAnimate(withDuration duration: Double) {
+        UIView.animate(withDuration: duration, animations: {
             self.frame.origin.y -= 10
-               UIView.animate(withDuration: duration, delay: delay) {
+               UIView.animate(withDuration: duration) {
                    self.frame.origin.x -= 10
                } completion: {_  in
                    UIView.animate(withDuration: 0.4) {
@@ -50,6 +50,16 @@ extension UIImageView {
            })
        }
     
+    func popUpAnimation(withDuration duration: Double) {
+        UIView.animate(withDuration: duration) {
+            self.frame.origin.y -= 18
+        } completion: {_ in
+            UIView.animate(withDuration: duration) {
+                self.frame.origin.y += 18
+            }
+        }
+    }
+    
     func setAfkAnimateBoat(image: UIImageView) {
         UIView.animate(withDuration: 0.8) {
             image.transform = image.transform.rotated(by: 0.2)
@@ -59,7 +69,6 @@ extension UIImageView {
 
             }
         }
-        
     }
 }
 

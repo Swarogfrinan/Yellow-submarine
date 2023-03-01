@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C1B2A3E06B8ECDAC07CE288 /* Pods_Yellow_submarine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285213F33B205B6A6E80B2EE /* Pods_Yellow_submarine.framework */; };
+		43A9E3EB29AFB4C90044EA41 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43A9E3EA29AFB4C90044EA41 /* SettingsViewController.storyboard */; };
 		43BDBF55299FAE7E004C5B73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF54299FAE7E004C5B73 /* AppDelegate.swift */; };
 		43BDBF57299FAE7E004C5B73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF56299FAE7E004C5B73 /* SceneDelegate.swift */; };
 		43BDBF5E299FAE80004C5B73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBF5D299FAE80004C5B73 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		285213F33B205B6A6E80B2EE /* Pods_Yellow_submarine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yellow_submarine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43A9E3EA29AFB4C90044EA41 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		43BDBF51299FAE7E004C5B73 /* Yellow submarine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yellow submarine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43BDBF54299FAE7E004C5B73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43BDBF56299FAE7E004C5B73 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				43BDBF68299FAE9B004C5B73 /* Main.storyboard */,
 				43F0989E29ACEE6A00DD4386 /* StartController.storyboard */,
+				43A9E3EA29AFB4C90044EA41 /* SettingsViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -124,11 +127,11 @@
 		43BDBF6E299FB021004C5B73 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				43BDBF6F299FB02D004C5B73 /* GameViewController.swift */,
-				43BDBF71299FB033004C5B73 /* RecordsViewController.swift */,
-				43BDBF93299FB3C7004C5B73 /* RecordTableViewCell.swift */,
 				43BDBF73299FB037004C5B73 /* StartGameViewController.swift */,
 				43BDBF75299FB03F004C5B73 /* SettingsViewController.swift */,
+				43BDBF71299FB033004C5B73 /* RecordsViewController.swift */,
+				43BDBF93299FB3C7004C5B73 /* RecordTableViewCell.swift */,
+				43BDBF6F299FB02D004C5B73 /* GameViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43A9E3EB29AFB4C90044EA41 /* SettingsViewController.storyboard in Resources */,
 				43BDBF6B299FAF21004C5B73 /* LaunchScreen.storyboard in Resources */,
 				43BDBF69299FAE9C004C5B73 /* Main.storyboard in Resources */,
 				43BDBFA3299FB42E004C5B73 /* submarineOst.mp3 in Resources */,

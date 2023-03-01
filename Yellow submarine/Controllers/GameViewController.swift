@@ -8,8 +8,7 @@ enum lifeOrDead {
 }
 
 class GameViewController: UIViewController{
-    
-    let fishArray = ["fishOne", "fishSecond"]
+    let settingsVC = SettingsViewController()
     //MARK: Rotate Interface
     override var shouldAutorotate: Bool {
         return true
@@ -266,7 +265,7 @@ class GameViewController: UIViewController{
     
     private  func showSubmarine() {
         guard let imageSubmarine = UserDefaults.standard.value(forKey: "image") as? String else  {return}
-        if let image = SettingsViewController.loadImage(fileName: imageSubmarine) {
+        if let image = settingsVC.loadImage(fileName: imageSubmarine) {
             submarinePlayerImage.image = image
         }
     }

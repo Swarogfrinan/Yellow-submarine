@@ -6,6 +6,7 @@ class StartGameViewController: UIViewController {
     
     // MARK: - Constans
     var counter : Int = 0
+    let settingsVc = SettingsViewController()
     // MARK: - IBOutlet
     
     @IBOutlet weak var playerSubmarineImage: UIImageView!
@@ -17,9 +18,12 @@ class StartGameViewController: UIViewController {
     
     //MARK: Lifecycle
     
+    override func viewWillAppear(_ animated: Bool) {
+        setSubmarineFromSettings()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setSubmarineFromSettings()
         setupAnimation()
         setupGesture()
         playerSubmarineImage.dropShadow()
@@ -34,7 +38,7 @@ class StartGameViewController: UIViewController {
     }
     
     @IBAction func menuButtonPressed(_ sender: UIButton) {
-        guard let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController else {
+        guard let controller = UIStoryboard(name: "SettingsViewController", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController else {
             return
         }
         controller.modalTransitionStyle = .crossDissolve
@@ -52,17 +56,17 @@ private extension StartGameViewController {
         startPlayGame()
     }
     private func setSubmarineFromSettings() {
-        guard let imageSubmarine = UserDefaults.standard.value(forKey: "submarineImage") as? String else  { return }
-        if let image = SettingsViewController.loadImage(fileName: imageSubmarine) {
+        guard let imageSubmarine = UserDefaults.standard.value(forKey: "imageSubmarine") as? String else  { return }
+        if let image = settingsVc.loadImage(fileName: imageSubmarine) {
             playerSubmarineImage.image = image
         }
     }
     private func setupAnimation() {
          Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [self] _ in
-            playerSubmarineImage.setAfkAnimate(withDuration: 0.4, delay: 0)
-            fishImage.setAfkAnimate(withDuration: 0.4, delay: 0)
-            secondFishImage.setAfkAnimate(withDuration: 0.4, delay: 0)
-            thirdFishImage.setAfkAnimate(withDuration: 0.4, delay: 0)
+            playerSubmarineImage.setAfkAnimate(withDuration: 0.4)
+            fishImage.setAfkAnimate(withDuration: 0.4)
+            secondFishImage.setAfkAnimate(withDuration: 0.4)
+            thirdFishImage.setAfkAnimate(withDuration: 0.4)
         })
         
         Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in

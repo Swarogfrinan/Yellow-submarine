@@ -61,7 +61,7 @@
                                     <constraint firstAttribute="width" constant="170.5" id="Ckl-yA-z0r"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seL-37-tun">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="submarine" translatesAutoresizingMaskIntoConstraints="NO" id="seL-37-tun">
                                 <rect key="frame" x="0.0" y="274.33333333333331" width="303" height="213"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -167,6 +167,14 @@
             </objects>
             <point key="canvasLocation" x="991.60305343511448" y="-32.394366197183103"/>
         </scene>
+        <!--SettingsStoryboard-->
+        <scene sceneID="IYD-m7-RK3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SettingsStoryboard" referencedIdentifier="SettingsStoryboard" id="nxV-n0-fLU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ms-4G-PYs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1489" y="-240"/>
+        </scene>
         <!--GameViewController-->
         <scene sceneID="tbv-we-qRh">
             <objects>
@@ -175,7 +183,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RwS-qa-Tbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1556" y="-145"/>
+            <point key="canvasLocation" x="1494" y="-73"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vji-c1-ydZ">
@@ -202,5 +210,6 @@
         <image name="fishOne" width="170.66667175292969" height="170.66667175292969"/>
         <image name="foneGround" width="320" height="48"/>
         <image name="ocean" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="submarine" width="170.66667175292969" height="170.66667175292969"/>
     </resources>
 </document>
