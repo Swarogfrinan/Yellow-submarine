@@ -1,12 +1,6 @@
 import UIKit
 import AVFoundation
 
-
-enum lifeOrDead {
-    case lifeOn
-    case deadOff
-}
-
 class GameViewController: UIViewController {
     
     let settingsVC = SettingsViewController()
@@ -49,7 +43,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var oxygenProgressView: UIProgressView!
     
     ///EnemiesView
-
+    
     @IBOutlet weak var fishOneImage: UIImageView!
     @IBOutlet weak var fishSecondImage: UIImageView!
     @IBOutlet weak var boatShipImage: UIImageView!
@@ -83,7 +77,7 @@ class GameViewController: UIViewController {
     
     //MARK: - Lifecycle
     
-   
+    
     
     override func viewWillAppear(_ animated: Bool) {
         do {
@@ -103,24 +97,19 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        showSubmarine()
-        self.showKraken()
-        self.showFish()
-        self.showSecondFish()
-        self.showBoat()
-        self.progressFunc()
-     
-        self.loseGame(lifeorDead: .lifeOn)
-        
-        self.showShark()
-        self.showJellyfish()
-        
+        setupUserSubmarine()
+        setupOxygenbar()
+        showFish()
+        showSecondFish()
+        showShark()
+        showJellyfish()
+        showBoat()
+        showKraken()
     }
     
     //MARK: - Бар с кислородом
     
-    func progressFunc() {
+    func setupOxygenbar() {
         oxygenProgressView.setProgress(1, animated: false)
         Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
             if self.oxygenProgressView.progress != 0 {
@@ -133,7 +122,7 @@ class GameViewController: UIViewController {
             }
             if self.oxygenProgressView.progress == 0 {
                 UIView.animate(withDuration: 1.5) {
-                    self.loseGame(lifeorDead: .deadOff)
+                    self.loseGame(life: false)
                 }
             }
         }
@@ -191,9 +180,11 @@ class GameViewController: UIViewController {
             break
         }
     }
-    //MARK: Private Methods
-    
-    private func saveResultGame() {
+}
+
+//MARK: Private Methods
+private extension GameViewController {
+    func saveResultGame() {
         //дата рекорда
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
@@ -202,27 +193,24 @@ class GameViewController: UIViewController {
         
         //число рыб
         let quantity = countFish
-        UserDefaults.standard.set(quantity, forKey: "quantity") //forkey - любой
+        UserDefaults.standard.set(quantity, forKey: "quantity") 
     }
-    private func loseGame(lifeorDead: lifeOrDead) {
-        switch lifeorDead {
-        case .lifeOn:
-            lose = false
+    
+
+    func loseGame(life : Bool) {
+        if life {
             self.dyingBlurView.alpha = 0
             self.resumeGameButton.alpha = 0
-            
-        case .deadOff:
+        } else {
             invalidateGameTimers()
-            lose = true
             self.dyingBlurView.alpha = 1
             self.resumeGameButton.alpha = 1
             print("Final count = \(countFish)")
             saveResultGame()
-            
         }
     }
-    
-    private func checkGroundIntersection() {
+
+    func checkGroundIntersection() {
         
         if submarinePlayerView.frame.origin.y >= 270{
             lose = true
@@ -231,11 +219,11 @@ class GameViewController: UIViewController {
             lose = true
         }
         if lose{
-            loseGame(lifeorDead: .deadOff)
+            loseGame(life: false)
         }
     }
     
-    private func saveGameResults() {
+    func saveGameResults() {
         
         let date = Date()
         let formatter = DateFormatter()
@@ -253,26 +241,26 @@ class GameViewController: UIViewController {
     }
     
     //MARK: Появление существ
-    private func invalidateGameTimers() {
-    let timerArray = [fishTimer, secondFishTimer, boatTimer, sharkTimer, jellyfishTimer, krakenTimer]
+    func invalidateGameTimers() {
+        let timerArray = [fishTimer, secondFishTimer, boatTimer, sharkTimer, jellyfishTimer, krakenTimer]
         for timers in timerArray {
             timers.invalidate()
         }
     }
     
-    private  func showSubmarine() {
-        guard let imageSubmarine = UserDefaults.standard.value(forKey: "image") as? String else  {return}
+    func setupUserSubmarine() {
+        guard let imageSubmarine = UserDefaults.standard.value(forKey: "imageSubmarine") as? String else  {return}
         if let image = settingsVC.loadImage(fileName: imageSubmarine) {
             submarinePlayerImage.image = image
         }
     }
     
-    private func showFish() {
+    func showFish() {
         fishTimer =  Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 6...20), repeats: true, block: { _ in
             self.fishOneImage.animateImageView(withDuration: 5, delay: 0.3, image: self.fishOneImage)
         })
     }
-    private func showSecondFish() {
+    func showSecondFish() {
         secondFishTimer =  Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 5...13), repeats: true, block: { _ in
             self.fishSecondImage.animateImageView(withDuration: 4, delay: 0.3, image: self.fishSecondImage)
             self.countFish += 1
@@ -280,7 +268,7 @@ class GameViewController: UIViewController {
         })
     }
     
-    private func showBoat() {
+     func showBoat() {
         boatTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 11...25), repeats: true, block: { _ in
             self.boatShipImage.animateImageView(withDuration: 7, delay: 0.3, image: self.boatShipImage)
             self.countFish += 1
@@ -288,23 +276,23 @@ class GameViewController: UIViewController {
         })
     }
     
-    private func showShark() {
+    func showShark() {
         sharkTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 18...45), repeats: true, block: { _ in
             self.sharkImage.animateImageView(withDuration: 13, delay: 0.7, image: self.sharkImage)
             self.countFish += 1
             print("\(self.countFish) = Shark")
         })
     }
-    private func showJellyfish() {
-       jellyfishTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 11...43), repeats: true, block: { _ in
+    func showJellyfish() {
+        jellyfishTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 11...43), repeats: true, block: { _ in
             self.jellyfishImage.animateImageView(withDuration: 4, delay: 0.2, image: self.jellyfishImage)
             self.countFish += 1
             print("\(self.countFish) = jellyfish")
         })
     }
     
-    private func showKraken() {
-     krakenTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 80...120), repeats: true, block: { _ in
+    func showKraken() {
+        krakenTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 80...120), repeats: true, block: { _ in
             self.krakenImage.animateImageView(withDuration: 25, delay: 6, image: self.krakenImage)
             self.countFish += 1
             print("\(self.countFish) = kraken")
