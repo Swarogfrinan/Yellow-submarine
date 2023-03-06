@@ -63,12 +63,6 @@ class GameViewController: UIViewController {
     
     
     //MARK: - State
-    private var lose = false
-    private var flagFish = true
-    private var flagBoat = true
-    private var flagMove = true
-    //    private var directions: Directions = .down
-    
     //MARK: Аудиоплэйер
     private var audioPlayer = AVAudioPlayer()
     private var counter : Int = 0
@@ -113,27 +107,25 @@ class GameViewController: UIViewController {
         oxygenProgressView.setProgress(1, animated: false)
         Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
             if self.oxygenProgressView.progress != 0 {
-                UIView.animate(withDuration: 2) {
-                    self.oxygenProgressView.progress -= 1 / 10
-                    if self.submarinePlayerView.frame.origin.y < -150 {
-                        self.oxygenProgressView.progress += 3/10
+                UIView.animate(withDuration: 2) { [self] in
+                    oxygenProgressView.progress -= 1 / 10
+                    if submarinePlayerView.frame.origin.y < -150 {
+                        oxygenProgressView.progress += 3/10
+                    } else if submarinePlayerView.frame.origin.y >= 270 {
+                        print("Death by reason - hitting the ground")
+                        oxygenProgressView.progress = 0
                     }
                 }
             }
             if self.oxygenProgressView.progress == 0 {
-                UIView.animate(withDuration: 1.5) {
+                UIView.animate(withDuration: 0.4) {
+                    print("Death by reason - ran out of oxygen")
                     self.loseGame(life: false)
                 }
             }
         }
         )}
-    var isOxygenfull: Bool = true {
-        didSet {
-            if submarinePlayerView.frame.origin.y < -140 {
-                self.oxygenProgressView.progress += 1
-            }
-        }
-    }
+  
     //MARK: Счетчик рыб
     
     var countFish : Int = 0 {
@@ -141,13 +133,6 @@ class GameViewController: UIViewController {
             countLabel.text = "Твой счёт \(countFish)"
         }
     }
-    var life: Bool = true {
-        didSet{
-            //            checkIntersection()
-            checkGroundIntersection()
-        }
-    }
-    
     //MARK: IBAction Methods
     
     @IBAction func swimUpButtonPressed(_ sender: UIButton) {
@@ -184,42 +169,25 @@ class GameViewController: UIViewController {
 
 //MARK: Private Methods
 private extension GameViewController {
+    
     func saveResultGame() {
-        //дата рекорда
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
         let str = dateFormatter.string(from: Date())
         UserDefaults.standard.setValue(str, forKey: "name")
-        
-        //число рыб
         let quantity = countFish
-        UserDefaults.standard.set(quantity, forKey: "quantity") 
+        UserDefaults.standard.set(quantity, forKey: "quantity")
     }
     
 
     func loseGame(life : Bool) {
         if life {
             self.dyingBlurView.alpha = 0
-            self.resumeGameButton.alpha = 0
         } else {
             invalidateGameTimers()
             self.dyingBlurView.alpha = 1
-            self.resumeGameButton.alpha = 1
             print("Final count = \(countFish)")
             saveResultGame()
-        }
-    }
-
-    func checkGroundIntersection() {
-        
-        if submarinePlayerView.frame.origin.y >= 270{
-            lose = true
-        }
-        if submarinePlayerView.frame.origin.y + submarinePlayerView.frame.height >= self.gameView.frame.height {
-            lose = true
-        }
-        if lose{
-            loseGame(life: false)
         }
     }
     
