@@ -31,6 +31,7 @@ override func awakeFromNib() {
         dateLabel.text = records.date
         scoreLabel.text = "\(String(describing: records.score))"
     }
+    
 override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
 }

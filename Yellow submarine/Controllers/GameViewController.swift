@@ -69,9 +69,8 @@ class GameViewController: UIViewController {
     private var records = [Record]()
     private let gameTimer = GameTimer()
     var countFish : Int = 0
+    
     //MARK: - Lifecycle
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         do {
@@ -103,29 +102,8 @@ class GameViewController: UIViewController {
     
     //MARK: - Бар с кислородом
     
-    func setupOxygenbar() {
-        oxygenProgressView.setProgress(1, animated: false)
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
-            if self.oxygenProgressView.progress != 0 {
-                UIView.animate(withDuration: 2) { [self] in
-                    oxygenProgressView.progress -= 1 / 10
-                    if submarinePlayerView.frame.origin.y < -150 {
-                        oxygenProgressView.progress += 3/10
-                    } else if submarinePlayerView.frame.origin.y >= 270 {
-                        print("Death by reason - hitting the ground")
-                        oxygenProgressView.progress = 0
-                    }
-                }
-            }
-            if self.oxygenProgressView.progress == 0 {
-                UIView.animate(withDuration: 0.4) {
-                    print("Death by reason - ran out of oxygen")
-                    self.loseGame(life: false)
-                }
-            }
-        }
-        )}
-
+    
+    
     //MARK: IBAction Methods
     
     @IBAction func swimUpButtonPressed(_ sender: UIButton) {
@@ -161,18 +139,32 @@ class GameViewController: UIViewController {
 }
 
 //MARK: Private Methods
+
 private extension GameViewController {
     
-//    func saveResultGame() {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
-//        let str = dateFormatter.string(from: Date())
-//        UserDefaults.standard.setValue(str, forKey: "name")
-//        let quantity = countFish
-//        UserDefaults.standard.set(quantity, forKey: "quantity")
-//    }
+    func setupOxygenbar() {
+        oxygenProgressView.setProgress(1, animated: false)
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
+            if self.oxygenProgressView.progress != 0 {
+                UIView.animate(withDuration: 2) { [self] in
+                    oxygenProgressView.progress -= 1 / 10
+                    if submarinePlayerView.frame.origin.y < -150 {
+                        oxygenProgressView.progress += 3/10
+                    } else if submarinePlayerView.frame.origin.y >= 270 {
+                        print("Death by reason - hitting the ground")
+                        oxygenProgressView.progress = 0
+                    }
+                }
+            }
+            if self.oxygenProgressView.progress == 0 {
+                UIView.animate(withDuration: 0.4) {
+                    print("Death by reason - ran out of oxygen")
+                    self.loseGame(life: false)
+                }
+            }
+        }
+        )}
     
-
     func loseGame(life : Bool) {
         if life {
             self.dyingBlurView.alpha = 0
@@ -184,8 +176,14 @@ private extension GameViewController {
         }
     }
     
+    func invalidateGameTimers() {
+        let timerArray = [fishTimer, secondFishTimer, boatTimer, sharkTimer, jellyfishTimer, krakenTimer]
+        for timers in timerArray {
+            timers.invalidate()
+        }
+    }
+    
     func saveGameResults() {
-        
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM, h:mm a"
@@ -198,16 +196,9 @@ private extension GameViewController {
         RecordsManager.shared.saveRecords(newRecord)
         
         print("\(countFish) was saved to UserDefaults")
-        
     }
     
     //MARK: Появление существ
-    func invalidateGameTimers() {
-        let timerArray = [fishTimer, secondFishTimer, boatTimer, sharkTimer, jellyfishTimer, krakenTimer]
-        for timers in timerArray {
-            timers.invalidate()
-        }
-    }
     
     func setupUserSubmarine() {
         guard let imageSubmarine = UserDefaults.standard.value(forKey: "imageSubmarine") as? String else  {return}
@@ -229,7 +220,7 @@ private extension GameViewController {
         })
     }
     
-     func showBoat() {
+    func showBoat() {
         boatTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 11...25), repeats: true, block: { _ in
             self.boatShipImage.animateImageView(withDuration: 7, delay: 0.3, image: self.boatShipImage)
             self.countFish += 1

@@ -20,7 +20,6 @@
 		43BDBF74299FB037004C5B73 /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF73299FB037004C5B73 /* StartGameViewController.swift */; };
 		43BDBF76299FB03F004C5B73 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF75299FB03F004C5B73 /* SettingsViewController.swift */; };
 		43BDBF8A299FB33E004C5B73 /* MoveSingleTon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF89299FB33E004C5B73 /* MoveSingleTon.swift */; };
-		43BDBF8E299FB348004C5B73 /* constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF8D299FB348004C5B73 /* constans.swift */; };
 		43BDBF9A299FB3C8004C5B73 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF91299FB3C7004C5B73 /* Settings.swift */; };
 		43BDBF9B299FB3C8004C5B73 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF93299FB3C7004C5B73 /* RecordTableViewCell.swift */; };
 		43BDBF9C299FB3C8004C5B73 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF94299FB3C7004C5B73 /* Record.swift */; };
@@ -49,7 +48,6 @@
 		43BDBF73299FB037004C5B73 /* StartGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGameViewController.swift; sourceTree = "<group>"; };
 		43BDBF75299FB03F004C5B73 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		43BDBF89299FB33E004C5B73 /* MoveSingleTon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveSingleTon.swift; sourceTree = "<group>"; };
-		43BDBF8D299FB348004C5B73 /* constans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constans.swift; sourceTree = "<group>"; };
 		43BDBF91299FB3C7004C5B73 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		43BDBF93299FB3C7004C5B73 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
 		43BDBF94299FB3C7004C5B73 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				43BDBF92299FB3C7004C5B73 /* Records */,
 				43BDBF90299FB3C7004C5B73 /* Settings */,
 				43BDBF89299FB33E004C5B73 /* MoveSingleTon.swift */,
-				43BDBF8D299FB348004C5B73 /* constans.swift */,
 				43F80A6329A36ECD004A9895 /* TimerModel.swift */,
 			);
 			path = Model;
@@ -334,7 +331,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				43BDBF8A299FB33E004C5B73 /* MoveSingleTon.swift in Sources */,
-				43BDBF8E299FB348004C5B73 /* constans.swift in Sources */,
 				43BDBF9C299FB3C8004C5B73 /* Record.swift in Sources */,
 				43BDBF9D299FB3C8004C5B73 /* RecordsManager.swift in Sources */,
 				43BDBF70299FB02D004C5B73 /* GameViewController.swift in Sources */,
