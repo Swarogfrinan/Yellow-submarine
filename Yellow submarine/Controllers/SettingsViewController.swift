@@ -61,8 +61,8 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    @IBAction func resultButtonPressed(_ sender: UIButton) {
-        guard let controler = self.storyboard?.instantiateViewController(withIdentifier: "TableResultVc") as? RecordsViewController else {
+    @IBAction func goToRecordsButtonPressed(_ sender: UIButton) {
+        guard let controler = UIStoryboard(name: "RecordsViewController", bundle: nil).instantiateViewController(withIdentifier: "RecordsViewController") as? RecordsViewController else {
             return
         }
         controler.modalTransitionStyle = .crossDissolve
@@ -98,6 +98,7 @@ class SettingsViewController: UIViewController {
             return nil
         }
     }
+    
     func loadImage(fileName: String) -> UIImage? {
         if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let imageUrl = documentDirectory.appendingPathComponent(fileName)

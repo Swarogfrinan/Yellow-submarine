@@ -102,7 +102,7 @@
                                             <color key="baseBackgroundColor" red="0.32276153559999998" green="0.70235711339999995" blue="0.85615342859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="resultButtonPressed:" destination="iRM-99-KyT" eventType="touchUpInside" id="H6x-nB-5BX"/>
+                                            <action selector="goToRecordsButtonPressed:" destination="iRM-99-KyT" eventType="touchUpInside" id="91q-QD-SLf"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Выбор игрового скина" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNc-9C-E9h">

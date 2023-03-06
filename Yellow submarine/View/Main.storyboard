@@ -450,18 +450,6 @@
             </objects>
             <point key="canvasLocation" x="-88" y="913"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="pNy-TE-wy2">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="11p-8N-Y3A" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="po9-0o-e7T">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pU4-Eb-seM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-88" y="-471"/>
-        </scene>
     </scenes>
     <resources>
         <image name="FishTwo" width="170.66667175292969" height="170.66667175292969"/>
