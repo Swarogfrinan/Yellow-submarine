@@ -7,11 +7,23 @@ enum lifeOrDead {
     case deadOff
 }
 
-class GameViewController: UIViewController{
+class GameViewController: UIViewController {
+    
     let settingsVC = SettingsViewController()
+    private var oxygenView = UIView()
+    
     //MARK: Rotate Interface
+    
     override var shouldAutorotate: Bool {
         return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .landscape
+        } else {
+            return .all
+        }
     }
     
     //MARK: - IBOutlet Playing field
@@ -30,11 +42,14 @@ class GameViewController: UIViewController{
     @IBOutlet weak var countLabel: UILabel!
     
     //MARK: - IBOutlet Game Enemies
+    
     ///Player View
     @IBOutlet weak var submarinePlayerView: UIView!
     @IBOutlet weak var submarinePlayerImage: UIImageView!
     @IBOutlet weak var oxygenProgressView: UIProgressView!
+    
     ///EnemiesView
+
     @IBOutlet weak var fishOneImage: UIImageView!
     @IBOutlet weak var fishSecondImage: UIImageView!
     @IBOutlet weak var boatShipImage: UIImageView!
@@ -42,11 +57,7 @@ class GameViewController: UIViewController{
     @IBOutlet weak var sharkImage: UIImageView!
     @IBOutlet weak var krakenImage: UIImageView!
     
-    
-    private var oxygenView = UIView()
-    
     //MARK: TIMERS
-    
     private var fishTimer = Timer()
     private var secondFishTimer = Timer()
     private var krakenTimer = Timer()
@@ -62,32 +73,30 @@ class GameViewController: UIViewController{
     private var flagFish = true
     private var flagBoat = true
     private var flagMove = true
-    private var directions: Directions = .down
+    //    private var directions: Directions = .down
     
     //MARK: Аудиоплэйер
-    var audioPlayer = AVAudioPlayer()
-    var counter : Int = 0
-    var records = [Record]()
-    
-   
-    
-    //MARK: RandomsNumbers
-    func randomDuration(in range: ClosedRange<Double>) -> Double {
-        return(Double.random(in: 3...12))
-    }
-    func randomTimerNumber(in range: ClosedRange<Double>) -> Double {
-        return(Double.random(in: 11...120))
-    }
-    
+    private var audioPlayer = AVAudioPlayer()
+    private var counter : Int = 0
+    private var records = [Record]()
+    private let gameTimer = GameTimer()
     
     //MARK: - Lifecycle
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .landscape
-        } else {
-            return .all
+   
+    
+    override func viewWillAppear(_ animated: Bool) {
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "submarineOst", ofType: "mp3")!))
+            audioPlayer.prepareToPlay()
+        } catch {
+            fatalError("Game music cannot be played")
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        audioPlayer.numberOfLoops = -1
+        audioPlayer.play()
     }
     
     //MARK: - ViewDidLoad
@@ -95,22 +104,13 @@ class GameViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "submarineOst", ofType: "mp3")!))
-            audioPlayer.prepareToPlay()
-        } catch {
-            fatalError("Game music cannot be played")
-        }
-        
-        audioPlayer.numberOfLoops = -1
-        audioPlayer.play()
         showSubmarine()
         self.showKraken()
         self.showFish()
         self.showSecondFish()
         self.showBoat()
         self.progressFunc()
-        oxygenProgressView.setProgress(1, animated: false)
+     
         self.loseGame(lifeorDead: .lifeOn)
         
         self.showShark()
@@ -118,32 +118,26 @@ class GameViewController: UIViewController{
         
     }
     
-    //MARK: Бар с кислородом
+    //MARK: - Бар с кислородом
     
     func progressFunc() {
-        oxygenTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
+        oxygenProgressView.setProgress(1, animated: false)
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
             if self.oxygenProgressView.progress != 0 {
                 UIView.animate(withDuration: 2) {
                     self.oxygenProgressView.progress -= 1 / 10
                     if self.submarinePlayerView.frame.origin.y < -150 {
                         self.oxygenProgressView.progress += 3/10
                     }
-                    
                 }
             }
-            //MARK: Кончился кислород
             if self.oxygenProgressView.progress == 0 {
-                //                self.visualEffectBlur.isHidden = false
-                //                self.buttonResumeDopVIew.isHidden = false
                 UIView.animate(withDuration: 1.5) {
-                    //                         self.visualEffectBlur.alpha = 1
-                    //                         self.buttonResumeDopVIew.alpha = 1
                     self.loseGame(lifeorDead: .deadOff)
                 }
             }
         }
         )}
-    //MARK: Пополнение кислорода
     var isOxygenfull: Bool = true {
         didSet {
             if submarinePlayerView.frame.origin.y < -140 {
@@ -151,8 +145,8 @@ class GameViewController: UIViewController{
             }
         }
     }
-    
     //MARK: Счетчик рыб
+    
     var countFish : Int = 0 {
         didSet {
             countLabel.text = "Твой счёт \(countFish)"
@@ -185,13 +179,13 @@ class GameViewController: UIViewController{
         audioPlayer.stop()
     }
     
-
+    
     @IBAction func pauseMusicButtonPressed(_ sender: UIButton) {
-        counter+=1
+        counter += 1
         switch counter % 3 {
-        case 1:
+        case 1 :
             audioPlayer.stop()
-        case 2:
+        case 2 :
             audioPlayer.play()
         default :
             break
@@ -199,7 +193,7 @@ class GameViewController: UIViewController{
     }
     //MARK: Private Methods
     
-   private func saveResultGame() {
+    private func saveResultGame() {
         //дата рекорда
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
@@ -210,17 +204,15 @@ class GameViewController: UIViewController{
         let quantity = countFish
         UserDefaults.standard.set(quantity, forKey: "quantity") //forkey - любой
     }
-    
-    
-    //29.01
-    //MARK: конец игры
-  private func loseGame(lifeorDead: lifeOrDead) {
+    private func loseGame(lifeorDead: lifeOrDead) {
         switch lifeorDead {
         case .lifeOn:
             lose = false
             self.dyingBlurView.alpha = 0
             self.resumeGameButton.alpha = 0
+            
         case .deadOff:
+            invalidateGameTimers()
             lose = true
             self.dyingBlurView.alpha = 1
             self.resumeGameButton.alpha = 1
@@ -230,7 +222,7 @@ class GameViewController: UIViewController{
         }
     }
     
-   private func checkGroundIntersection() {
+    private func checkGroundIntersection() {
         
         if submarinePlayerView.frame.origin.y >= 270{
             lose = true
@@ -242,12 +234,11 @@ class GameViewController: UIViewController{
             loseGame(lifeorDead: .deadOff)
         }
     }
-        
-   private func saveGameResults() {
+    
+    private func saveGameResults() {
         
         let date = Date()
         let formatter = DateFormatter()
-        //        formatter.dateFormat = "MM dd, h:mm"
         formatter.dateFormat = "dd/MM, h:mm a"
         formatter.amSymbol = "AM"
         formatter.pmSymbol = "PM"
@@ -257,11 +248,17 @@ class GameViewController: UIViewController{
         let newRecord = Record(score: countFish, date: dateString)
         RecordsManager.shared.saveRecords(newRecord)
         
-        print("\(countFish) was saved to UD")
+        print("\(countFish) was saved to UserDefaults")
         
     }
     
     //MARK: Появление существ
+    private func invalidateGameTimers() {
+    let timerArray = [fishTimer, secondFishTimer, boatTimer, sharkTimer, jellyfishTimer, krakenTimer]
+        for timers in timerArray {
+            timers.invalidate()
+        }
+    }
     
     private  func showSubmarine() {
         guard let imageSubmarine = UserDefaults.standard.value(forKey: "image") as? String else  {return}
@@ -269,14 +266,14 @@ class GameViewController: UIViewController{
             submarinePlayerImage.image = image
         }
     }
- 
+    
     private func showFish() {
-        fishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 6...20), repeats: true, block: { _ in
+        fishTimer =  Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 6...20), repeats: true, block: { _ in
             self.fishOneImage.animateImageView(withDuration: 5, delay: 0.3, image: self.fishOneImage)
         })
     }
     private func showSecondFish() {
-        secondFishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 5...13), repeats: true, block: { _ in
+        secondFishTimer =  Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 5...13), repeats: true, block: { _ in
             self.fishSecondImage.animateImageView(withDuration: 4, delay: 0.3, image: self.fishSecondImage)
             self.countFish += 1
             print("\(self.countFish) = secondFish")
@@ -284,7 +281,7 @@ class GameViewController: UIViewController{
     }
     
     private func showBoat() {
-        boatTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...25), repeats: true, block: { _ in
+        boatTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 11...25), repeats: true, block: { _ in
             self.boatShipImage.animateImageView(withDuration: 7, delay: 0.3, image: self.boatShipImage)
             self.countFish += 1
             print("\(self.countFish) = Boat")
@@ -292,14 +289,14 @@ class GameViewController: UIViewController{
     }
     
     private func showShark() {
-        sharkTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 18...45), repeats: true, block: { _ in
+        sharkTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 18...45), repeats: true, block: { _ in
             self.sharkImage.animateImageView(withDuration: 13, delay: 0.7, image: self.sharkImage)
             self.countFish += 1
             print("\(self.countFish) = Shark")
         })
     }
     private func showJellyfish() {
-        jellyfishTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 11...43), repeats: true, block: { _ in
+       jellyfishTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 11...43), repeats: true, block: { _ in
             self.jellyfishImage.animateImageView(withDuration: 4, delay: 0.2, image: self.jellyfishImage)
             self.countFish += 1
             print("\(self.countFish) = jellyfish")
@@ -307,13 +304,13 @@ class GameViewController: UIViewController{
     }
     
     private func showKraken() {
-        krakenTimer = Timer.scheduledTimer(withTimeInterval: randomTimerNumber(in: 80...120), repeats: true, block: { _ in
+     krakenTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 80...120), repeats: true, block: { _ in
             self.krakenImage.animateImageView(withDuration: 25, delay: 6, image: self.krakenImage)
             self.countFish += 1
             print("\(self.countFish) = kraken")
         })
     }
-        }
-    
+}
+
 
 

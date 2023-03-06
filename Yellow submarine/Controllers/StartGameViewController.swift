@@ -16,8 +16,15 @@ class StartGameViewController: UIViewController {
     @IBOutlet weak var thirdFishImage: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     
-    //MARK: Lifecycle
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .portrait
+        } else {
+            return .all
+        }
+    }
     
+    //MARK: Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         setSubmarineFromSettings()
     }
