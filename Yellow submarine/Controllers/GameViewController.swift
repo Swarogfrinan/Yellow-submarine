@@ -65,10 +65,10 @@ class GameViewController: UIViewController {
     //MARK: - State
     //MARK: Аудиоплэйер
     private var audioPlayer = AVAudioPlayer()
-    private var counter : Int = 0
+    private var audioCounter : Int = 0
     private var records = [Record]()
     private let gameTimer = GameTimer()
-    
+    var countFish : Int = 0
     //MARK: - Lifecycle
     
     
@@ -125,14 +125,7 @@ class GameViewController: UIViewController {
             }
         }
         )}
-  
-    //MARK: Счетчик рыб
-    
-    var countFish : Int = 0 {
-        didSet {
-            countLabel.text = "Твой счёт \(countFish)"
-        }
-    }
+
     //MARK: IBAction Methods
     
     @IBAction func swimUpButtonPressed(_ sender: UIButton) {
@@ -155,8 +148,8 @@ class GameViewController: UIViewController {
     
     
     @IBAction func pauseMusicButtonPressed(_ sender: UIButton) {
-        counter += 1
-        switch counter % 3 {
+        audioCounter += 1
+        switch audioCounter % 3 {
         case 1 :
             audioPlayer.stop()
         case 2 :
@@ -170,14 +163,14 @@ class GameViewController: UIViewController {
 //MARK: Private Methods
 private extension GameViewController {
     
-    func saveResultGame() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
-        let str = dateFormatter.string(from: Date())
-        UserDefaults.standard.setValue(str, forKey: "name")
-        let quantity = countFish
-        UserDefaults.standard.set(quantity, forKey: "quantity")
-    }
+//    func saveResultGame() {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+//        let str = dateFormatter.string(from: Date())
+//        UserDefaults.standard.setValue(str, forKey: "name")
+//        let quantity = countFish
+//        UserDefaults.standard.set(quantity, forKey: "quantity")
+//    }
     
 
     func loseGame(life : Bool) {
@@ -187,7 +180,7 @@ private extension GameViewController {
             invalidateGameTimers()
             self.dyingBlurView.alpha = 1
             print("Final count = \(countFish)")
-            saveResultGame()
+            saveGameResults()
         }
     }
     
@@ -200,7 +193,7 @@ private extension GameViewController {
         formatter.pmSymbol = "PM"
         formatter.timeZone = .current
         let dateString = formatter.string(from: date)
-        print(dateString)
+        print("Last game date - \(dateString)")
         let newRecord = Record(score: countFish, date: dateString)
         RecordsManager.shared.saveRecords(newRecord)
         
