@@ -1,12 +1,11 @@
 import UIKit
 
-class RecordsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RecordsViewController: UIViewController {
     
     //MARK: Constant
-    
     let data = Data()
     var records = RecordsManager.shared.loadRecords()
-    let strOut = UserDefaults.standard.string(forKey: "name")
+    let strOut = UserDefaults.standard.string(forKey: "strOut")
     
     //MARK: IBOutlet
     
@@ -19,11 +18,11 @@ class RecordsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         //загрузка времени забега
-        if let strOut = UserDefaults.standard.string(forKey: "name") {
+        if let strOut = UserDefaults.standard.string(forKey: "strOut") {
             print(strOut)
             dateRecordLabel.text = strOut
-            //            tableView.delegate = self
-            //            tableView.dataSource = self
+                        tableView.delegate = self
+                        tableView.dataSource = self
         }
         
         //загрузка результатов забега
@@ -31,11 +30,16 @@ class RecordsViewController: UIViewController, UITableViewDelegate, UITableViewD
         recordLabel.text = "Твой счёт последний счёт \(quantity)"
         
     }
-
+    
+    //MARK: IBA Methods
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+}
+
+
+extension RecordsViewController : UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -57,14 +61,13 @@ class RecordsViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.scoreLabel.text = "\(recordScore)"
         }
         
-        
-        
         return cell
     }
+}
+
+extension RecordsViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected cell #\(indexPath.row)!")
     }
 }
-
-
 
