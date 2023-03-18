@@ -1,14 +1,12 @@
 import UIKit
 
-
-
 class StartGameViewController: UIViewController {
     
     // MARK: - Constans
     var counter : Int = 0
     let settingsVc = SettingsViewController()
-    // MARK: - IBOutlet
     
+    // MARK: - IBOutlet
     @IBOutlet weak var playerSubmarineImage: UIImageView!
     @IBOutlet weak var boatImage: UIImageView!
     @IBOutlet weak var fishImage: UIImageView!
@@ -27,6 +25,7 @@ class StartGameViewController: UIViewController {
     //MARK: Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         setSubmarineFromSettings()
+        playButton.alpha = 1
     }
     
     override func viewDidLoad() {
@@ -69,7 +68,7 @@ private extension StartGameViewController {
         }
     }
     private func setupAnimation() {
-         Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [self] _ in
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [self] _ in
             playerSubmarineImage.setAfkAnimate(withDuration: 0.4)
             fishImage.setAfkAnimate(withDuration: 0.4)
             secondFishImage.setAfkAnimate(withDuration: 0.4)
@@ -88,35 +87,26 @@ private extension StartGameViewController {
     }
     
     func startPlayGame() {
-        counter += 1
-        switch counter % 2 {
-        case 1 :
-            UIView.animate(withDuration: 0.3) {
-                self.playButton.alpha = 0
-            }
-            
+        UIView.animate(withDuration: 0.5) {
+            self.playButton.alpha = 0
+        } completion: { _ in
             UIView.animate(withDuration: 2) {
-                self.playerSubmarineImage.frame.origin.x += 600
-            } completion: {_ in
-                UIView.animate(withDuration: 4) {
-                    self.playerSubmarineImage.isHidden = true
-                    self.playerSubmarineImage.frame.origin.x -= 600
-                    self.playerSubmarineImage.isHidden = false
-                    self.playButton.alpha = 1
-                }
+                self.playerSubmarineImage.frame.origin.x += 900
+            }
+        }
+        
+        goToGameViewController()
+    }
+    
+    func goToGameViewController() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+            guard let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as? GameViewController else {
+                return
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                guard let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as? GameViewController else {
-                    return
-                }
-                
-                controller.modalTransitionStyle = .flipHorizontal
-                controller.modalPresentationStyle = .fullScreen
-                self.present(controller, animated: true, completion: nil)
-            }
-        default :
-            break
+            controller.modalTransitionStyle = .flipHorizontal
+            controller.modalPresentationStyle = .fullScreen
+            self.present(controller, animated: true, completion: nil)
         }
     }
 }
