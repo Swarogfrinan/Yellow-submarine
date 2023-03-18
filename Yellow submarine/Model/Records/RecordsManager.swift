@@ -11,12 +11,14 @@ class RecordsManager {
     
     func saveGameResults( withCount userScore : Int) {
         let date = Date()
+        let nickName : String = "Ilya"
 //        let recordsData = RecordsData(context: context)
         guard let entity = NSEntityDescription.entity(forEntityName: "RecordsData", in: context) else {return}
         
         let recordsObject = RecordsData(entity: entity, insertInto: context)
         recordsObject.score = Int64(userScore)
         recordsObject.date = date
+        recordsObject.nickname = nickName
         
         do {
             try context.save()

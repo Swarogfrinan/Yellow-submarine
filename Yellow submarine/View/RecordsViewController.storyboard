@@ -25,32 +25,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ocean" translatesAutoresizingMaskIntoConstraints="NO" id="2bR-aW-F81">
-                                <rect key="frame" x="0.0" y="-46" width="875" height="199"/>
+                                <rect key="frame" x="0.0" y="-46" width="875" height="170.66666666666666"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="dP0-eI-9SZ">
-                                <rect key="frame" x="200" y="89" width="452" height="42"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Привет" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f02-Dm-vNP">
-                                        <rect key="frame" x="0.0" y="0.0" width="237.66666666666666" height="42"/>
-                                        <color key="backgroundColor" red="0.32276153559999998" green="0.70235711339999995" blue="0.85615342859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgE-PZ-fwr">
-                                        <rect key="frame" x="239.66666666666669" y="0.0" width="212.33333333333331" height="42"/>
-                                        <color key="backgroundColor" red="0.32276153559999998" green="0.70235711339999995" blue="0.85615342859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Som-Fz-1cp" customClass="tableResultVc">
-                                <rect key="frame" x="16" y="161" width="820" height="198"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Som-Fz-1cp" customClass="tableResultVc">
+                                <rect key="frame" x="16" y="87" width="820" height="272"/>
                                 <color key="backgroundColor" red="0.25403383369999999" green="0.56603425740000002" blue="0.65572595600000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecordTableViewCell" id="jyV-B8-ljs" customClass="RecordTableViewCell" customModule="Yellow_submarine" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecordCell" id="jyV-B8-ljs" customClass="RecordCell" customModule="Yellow_submarine" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="820" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.85000002384185791" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jyV-B8-ljs" id="9hl-P3-PtH">
@@ -63,14 +44,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcr-wX-Ty0">
-                                                    <rect key="frame" x="373.66666666666669" y="15.999999999999998" width="54" height="20.333333333333329"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcr-wX-Ty0">
+                                                    <rect key="frame" x="373.66666666666669" y="16" width="44.333333333333314" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSg-5F-oGt">
-                                                    <rect key="frame" x="747.33333333333337" y="15.999999999999998" width="37.666666666666629" height="20.333333333333329"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSg-5F-oGt" userLabel="Game Date">
+                                                    <rect key="frame" x="700" y="15.999999999999998" width="85" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -86,10 +67,11 @@
                                                 <constraint firstItem="Zcr-wX-Ty0" firstAttribute="leading" secondItem="Lg0-61-Zr3" secondAttribute="trailing" constant="281" id="x9S-qq-HP9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemCyanColor"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="VSg-5F-oGt" id="xtg-t7-f9g"/>
-                                            <outlet property="nameLabel" destination="Lg0-61-Zr3" id="0EG-jS-TxJ"/>
                                             <outlet property="scoreLabel" destination="Zcr-wX-Ty0" id="nKM-vb-DXT"/>
+                                            <outlet property="userNicknameLabel" destination="Lg0-61-Zr3" id="0EG-jS-TxJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -120,11 +102,7 @@
                             <constraint firstItem="Lav-fd-hXc" firstAttribute="top" secondItem="Fg8-Oa-2wH" secondAttribute="top" constant="15" id="6AO-AK-dsg"/>
                             <constraint firstItem="2bR-aW-F81" firstAttribute="top" secondItem="7gV-q6-NV0" secondAttribute="top" constant="-46" id="Bvn-sv-Hji"/>
                             <constraint firstItem="Som-Fz-1cp" firstAttribute="bottom" secondItem="Fg8-Oa-2wH" secondAttribute="bottom" id="Jfh-yO-hEz"/>
-                            <constraint firstItem="dP0-eI-9SZ" firstAttribute="leading" secondItem="Fg8-Oa-2wH" secondAttribute="leading" constant="200" id="KRx-Ke-JUG"/>
-                            <constraint firstItem="Fg8-Oa-2wH" firstAttribute="trailing" secondItem="dP0-eI-9SZ" secondAttribute="trailing" constant="200" id="RNz-1U-dCU"/>
-                            <constraint firstItem="Som-Fz-1cp" firstAttribute="top" secondItem="dP0-eI-9SZ" secondAttribute="bottom" constant="30" id="T55-0C-Inl"/>
                             <constraint firstItem="Lav-fd-hXc" firstAttribute="leading" secondItem="Fg8-Oa-2wH" secondAttribute="leading" constant="15" id="duI-PC-kz6"/>
-                            <constraint firstItem="dP0-eI-9SZ" firstAttribute="top" secondItem="Fg8-Oa-2wH" secondAttribute="top" constant="30" id="euY-Ci-p5T"/>
                             <constraint firstAttribute="trailing" secondItem="2bR-aW-F81" secondAttribute="trailing" constant="-23" id="fEF-dC-zmq"/>
                             <constraint firstItem="Som-Fz-1cp" firstAttribute="top" secondItem="2bR-aW-F81" secondAttribute="bottom" constant="8" symbolic="YES" id="phF-gx-SET"/>
                             <constraint firstItem="Fg8-Oa-2wH" firstAttribute="trailing" secondItem="Som-Fz-1cp" secondAttribute="trailing" constant="16" id="vgC-he-8Vf"/>
@@ -133,20 +111,21 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="Lav-fd-hXc" id="PRl-Ju-bnX"/>
-                        <outlet property="countRecordLabel" destination="f02-Dm-vNP" id="ZDC-08-hzn"/>
-                        <outlet property="dateRecordLabel" destination="ZgE-PZ-fwr" id="4Em-1l-7c2"/>
                         <outlet property="tableView" destination="Som-Fz-1cp" id="Mxe-Ui-Ueg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgC-rI-74j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-88" y="913"/>
+            <point key="canvasLocation" x="-88.028169014084511" y="912.2137404580152"/>
         </scene>
     </scenes>
     <resources>
         <image name="ocean" width="170.66667175292969" height="170.66667175292969"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
