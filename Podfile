@@ -7,5 +7,4 @@ target 'Yellow submarine' do
 
   # Pods for Yellow submarine
 pod 'SwiftLint'
-
 end

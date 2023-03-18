@@ -167,24 +167,6 @@
             </objects>
             <point key="canvasLocation" x="991.60305343511448" y="-32.394366197183103"/>
         </scene>
-        <!--SettingsStoryboard-->
-        <scene sceneID="IYD-m7-RK3">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SettingsStoryboard" referencedIdentifier="SettingsStoryboard" id="nxV-n0-fLU" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ms-4G-PYs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1489" y="-240"/>
-        </scene>
-        <!--GameViewController-->
-        <scene sceneID="tbv-we-qRh">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="GameViewController" id="xd1-VV-qb3" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Msn-3i-btc"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RwS-qa-Tbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1494" y="-73"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vji-c1-ydZ">
             <objects>

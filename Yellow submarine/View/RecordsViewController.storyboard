@@ -133,8 +133,8 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="Lav-fd-hXc" id="PRl-Ju-bnX"/>
+                        <outlet property="countRecordLabel" destination="f02-Dm-vNP" id="ZDC-08-hzn"/>
                         <outlet property="dateRecordLabel" destination="ZgE-PZ-fwr" id="4Em-1l-7c2"/>
-                        <outlet property="recordLabel" destination="f02-Dm-vNP" id="ZDC-08-hzn"/>
                         <outlet property="tableView" destination="Som-Fz-1cp" id="Mxe-Ui-Ueg"/>
                     </connections>
                 </viewController>

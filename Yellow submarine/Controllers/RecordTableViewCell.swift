@@ -27,8 +27,8 @@ override func awakeFromNib() {
     super.awakeFromNib()
 
 }
-    func configure(records: Record) {
-        dateLabel.text = records.date
+    func configure(records: RecordsData) {
+//        dateLabel.text = String(records.date)
         scoreLabel.text = "\(String(describing: records.score))"
     }
     

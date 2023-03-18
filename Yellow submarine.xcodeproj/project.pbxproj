@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C1B2A3E06B8ECDAC07CE288 /* Pods_Yellow_submarine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285213F33B205B6A6E80B2EE /* Pods_Yellow_submarine.framework */; };
+		438BD05E29C492D6002D73F0 /* RecordsData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 438BD05C29C492D6002D73F0 /* RecordsData.xcdatamodeld */; };
 		43A9E3EB29AFB4C90044EA41 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43A9E3EA29AFB4C90044EA41 /* SettingsViewController.storyboard */; };
 		43A9E3ED29AFCF5E0044EA41 /* RecordsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43A9E3EC29AFCF5E0044EA41 /* RecordsViewController.storyboard */; };
 		43BDBF55299FAE7E004C5B73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF54299FAE7E004C5B73 /* AppDelegate.swift */; };
@@ -22,18 +23,18 @@
 		43BDBF8A299FB33E004C5B73 /* MoveSingleTon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF89299FB33E004C5B73 /* MoveSingleTon.swift */; };
 		43BDBF9A299FB3C8004C5B73 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF91299FB3C7004C5B73 /* Settings.swift */; };
 		43BDBF9B299FB3C8004C5B73 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF93299FB3C7004C5B73 /* RecordTableViewCell.swift */; };
-		43BDBF9C299FB3C8004C5B73 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF94299FB3C7004C5B73 /* Record.swift */; };
 		43BDBF9D299FB3C8004C5B73 /* RecordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */; };
 		43BDBFA3299FB42E004C5B73 /* submarineOst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */; };
 		43BDBFA5299FB46F004C5B73 /* UIview + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBFA4299FB46F004C5B73 /* UIview + Extension.swift */; };
 		43F0989F29ACEE6A00DD4386 /* StartController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F0989E29ACEE6A00DD4386 /* StartController.storyboard */; };
-		43F80A6429A36ECD004A9895 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F80A6329A36ECD004A9895 /* TimerModel.swift */; };
+		43F80A6429A36ECD004A9895 /* TimerBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F80A6329A36ECD004A9895 /* TimerBrain.swift */; };
 		43F80A6629A374AA004A9895 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F80A6529A374AA004A9895 /* UIButton + Extension.swift */; };
 		43F80A6B29A37611004A9895 /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F80A6A29A37611004A9895 /* Extension + UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		285213F33B205B6A6E80B2EE /* Pods_Yellow_submarine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yellow_submarine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		438BD05D29C492D6002D73F0 /* z.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = z.xcdatamodel; sourceTree = "<group>"; };
 		43A9E3EA29AFB4C90044EA41 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		43A9E3EC29AFCF5E0044EA41 /* RecordsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecordsViewController.storyboard; sourceTree = "<group>"; };
 		43BDBF51299FAE7E004C5B73 /* Yellow submarine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yellow submarine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,12 +51,11 @@
 		43BDBF89299FB33E004C5B73 /* MoveSingleTon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveSingleTon.swift; sourceTree = "<group>"; };
 		43BDBF91299FB3C7004C5B73 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		43BDBF93299FB3C7004C5B73 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
-		43BDBF94299FB3C7004C5B73 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsManager.swift; sourceTree = "<group>"; };
 		43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = submarineOst.mp3; sourceTree = "<group>"; };
 		43BDBFA4299FB46F004C5B73 /* UIview + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIview + Extension.swift"; sourceTree = "<group>"; };
 		43F0989E29ACEE6A00DD4386 /* StartController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartController.storyboard; sourceTree = "<group>"; };
-		43F80A6329A36ECD004A9895 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		43F80A6329A36ECD004A9895 /* TimerBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBrain.swift; sourceTree = "<group>"; };
 		43F80A6529A374AA004A9895 /* UIButton + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 		43F80A6A29A37611004A9895 /* Extension + UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
 		4728D2BD56212DB89B0CA547 /* Pods-Yellow submarine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yellow submarine.debug.xcconfig"; path = "Target Support Files/Pods-Yellow submarine/Pods-Yellow submarine.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,8 +108,8 @@
 		43BDBF6C299FAF37004C5B73 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				43BDBF68299FAE9B004C5B73 /* Main.storyboard */,
 				43F0989E29ACEE6A00DD4386 /* StartController.storyboard */,
+				43BDBF68299FAE9B004C5B73 /* Main.storyboard */,
 				43A9E3EA29AFB4C90044EA41 /* SettingsViewController.storyboard */,
 				43A9E3EC29AFCF5E0044EA41 /* RecordsViewController.storyboard */,
 			);
@@ -143,7 +143,7 @@
 				43BDBF92299FB3C7004C5B73 /* Records */,
 				43BDBF90299FB3C7004C5B73 /* Settings */,
 				43BDBF89299FB33E004C5B73 /* MoveSingleTon.swift */,
-				43F80A6329A36ECD004A9895 /* TimerModel.swift */,
+				43F80A6329A36ECD004A9895 /* TimerBrain.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,7 +159,7 @@
 		43BDBF92299FB3C7004C5B73 /* Records */ = {
 			isa = PBXGroup;
 			children = (
-				43BDBF94299FB3C7004C5B73 /* Record.swift */,
+				438BD05C29C492D6002D73F0 /* RecordsData.xcdatamodeld */,
 				43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */,
 			);
 			path = Records;
@@ -219,10 +219,10 @@
 			buildConfigurationList = 43BDBF65299FAE80004C5B73 /* Build configuration list for PBXNativeTarget "Yellow submarine" */;
 			buildPhases = (
 				C4B324C98C51C385E15418AB /* [CP] Check Pods Manifest.lock */,
+				435CE28229C47B170062A570 /* SwiftLint */,
 				43BDBF4D299FAE7E004C5B73 /* Sources */,
 				43BDBF4E299FAE7E004C5B73 /* Frameworks */,
 				43BDBF4F299FAE7E004C5B73 /* Resources */,
-				43F80A6229A368F0004A9895 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -284,22 +284,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		43F80A6229A368F0004A9895 /* ShellScript */ = {
+		435CE28229C47B170062A570 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		C4B324C98C51C385E15418AB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -330,8 +332,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				438BD05E29C492D6002D73F0 /* RecordsData.xcdatamodeld in Sources */,
 				43BDBF8A299FB33E004C5B73 /* MoveSingleTon.swift in Sources */,
-				43BDBF9C299FB3C8004C5B73 /* Record.swift in Sources */,
 				43BDBF9D299FB3C8004C5B73 /* RecordsManager.swift in Sources */,
 				43BDBF70299FB02D004C5B73 /* GameViewController.swift in Sources */,
 				43BDBF55299FAE7E004C5B73 /* AppDelegate.swift in Sources */,
@@ -341,7 +343,7 @@
 				43BDBF74299FB037004C5B73 /* StartGameViewController.swift in Sources */,
 				43BDBF72299FB033004C5B73 /* RecordsViewController.swift in Sources */,
 				43BDBFA5299FB46F004C5B73 /* UIview + Extension.swift in Sources */,
-				43F80A6429A36ECD004A9895 /* TimerModel.swift in Sources */,
+				43F80A6429A36ECD004A9895 /* TimerBrain.swift in Sources */,
 				43BDBF76299FB03F004C5B73 /* SettingsViewController.swift in Sources */,
 				43F80A6B29A37611004A9895 /* Extension + UIImage.swift in Sources */,
 				43BDBF9B299FB3C8004C5B73 /* RecordTableViewCell.swift in Sources */,
@@ -551,6 +553,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		438BD05C29C492D6002D73F0 /* RecordsData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				438BD05D29C492D6002D73F0 /* z.xcdatamodel */,
+			);
+			currentVersion = 438BD05D29C492D6002D73F0 /* z.xcdatamodel */;
+			path = RecordsData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 43BDBF49299FAE7E004C5B73 /* Project object */;
 }
