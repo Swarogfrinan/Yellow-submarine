@@ -11,20 +11,20 @@ class RecordsManager {
     
     func saveGameResults( withCount userScore : Int) {
         let date = Date()
-        let recordsData = RecordsData(context: context)
+//        let recordsData = RecordsData(context: context)
         guard let entity = NSEntityDescription.entity(forEntityName: "RecordsData", in: context) else {return}
-        let recordsObject = RecordsData(entity: entity, insertInto: context)
         
+        let recordsObject = RecordsData(entity: entity, insertInto: context)
         recordsObject.score = Int64(userScore)
         recordsObject.date = date
         
         do {
             try context.save()
             records.append(recordsObject)
-        } catch {
-            print ("Error encoding item array \(error)")
+        } catch let error as NSError {
+            print (error.localizedDescription)
         }
-        print("\(userScore) was saved to UserDefaults")
+        print("\(userScore) was saved to CoreData")
         //        let date = Date()
         //        let formatter = DateFormatter()
         //        formatter.dateFormat = "dd/MM, h:mm a"
