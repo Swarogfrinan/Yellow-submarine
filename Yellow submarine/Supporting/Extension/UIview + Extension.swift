@@ -1,6 +1,6 @@
 import Foundation
 import UIKit
-
+// MARK: - Extension + UIButton
 
 extension UIView {
     
@@ -15,7 +15,7 @@ extension UIView {
         layer.shouldRasterize = true
     }
     
-    func dropShadowboat() {
+    func setShadowOnBoat() {
         layer.masksToBounds = false
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.3

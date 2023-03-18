@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2C1B2A3E06B8ECDAC07CE288 /* Pods_Yellow_submarine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285213F33B205B6A6E80B2EE /* Pods_Yellow_submarine.framework */; };
 		438A869A29C5DCD600BFFAD1 /* AudioPlayerBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438A869929C5DCD600BFFAD1 /* AudioPlayerBrain.swift */; };
+		438A869D29C5F4BF00BFFAD1 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 438A869C29C5F4BF00BFFAD1 /* View.xib */; };
 		438BD05E29C492D6002D73F0 /* RecordsData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 438BD05C29C492D6002D73F0 /* RecordsData.xcdatamodeld */; };
 		43A9E3EB29AFB4C90044EA41 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43A9E3EA29AFB4C90044EA41 /* SettingsViewController.storyboard */; };
 		43A9E3ED29AFCF5E0044EA41 /* RecordsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43A9E3EC29AFCF5E0044EA41 /* RecordsViewController.storyboard */; };
@@ -21,7 +22,7 @@
 		43BDBF72299FB033004C5B73 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF71299FB033004C5B73 /* RecordsViewController.swift */; };
 		43BDBF74299FB037004C5B73 /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF73299FB037004C5B73 /* StartGameViewController.swift */; };
 		43BDBF76299FB03F004C5B73 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF75299FB03F004C5B73 /* SettingsViewController.swift */; };
-		43BDBF8A299FB33E004C5B73 /* MoveSingleTon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF89299FB33E004C5B73 /* MoveSingleTon.swift */; };
+		43BDBF8A299FB33E004C5B73 /* MovementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF89299FB33E004C5B73 /* MovementModel.swift */; };
 		43BDBF9A299FB3C8004C5B73 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF91299FB3C7004C5B73 /* Settings.swift */; };
 		43BDBF9B299FB3C8004C5B73 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF93299FB3C7004C5B73 /* RecordCell.swift */; };
 		43BDBF9D299FB3C8004C5B73 /* RecordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */; };
@@ -30,12 +31,13 @@
 		43F0989F29ACEE6A00DD4386 /* StartController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F0989E29ACEE6A00DD4386 /* StartController.storyboard */; };
 		43F80A6429A36ECD004A9895 /* TimerBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F80A6329A36ECD004A9895 /* TimerBrain.swift */; };
 		43F80A6629A374AA004A9895 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F80A6529A374AA004A9895 /* UIButton + Extension.swift */; };
-		43F80A6B29A37611004A9895 /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F80A6A29A37611004A9895 /* Extension + UIImage.swift */; };
+		43F80A6B29A37611004A9895 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F80A6A29A37611004A9895 /* UIImageView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		285213F33B205B6A6E80B2EE /* Pods_Yellow_submarine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yellow_submarine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		438A869929C5DCD600BFFAD1 /* AudioPlayerBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerBrain.swift; sourceTree = "<group>"; };
+		438A869C29C5F4BF00BFFAD1 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		438BD05D29C492D6002D73F0 /* z.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = z.xcdatamodel; sourceTree = "<group>"; };
 		43A9E3EA29AFB4C90044EA41 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		43A9E3EC29AFCF5E0044EA41 /* RecordsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecordsViewController.storyboard; sourceTree = "<group>"; };
@@ -50,7 +52,7 @@
 		43BDBF71299FB033004C5B73 /* RecordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		43BDBF73299FB037004C5B73 /* StartGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGameViewController.swift; sourceTree = "<group>"; };
 		43BDBF75299FB03F004C5B73 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		43BDBF89299FB33E004C5B73 /* MoveSingleTon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveSingleTon.swift; sourceTree = "<group>"; };
+		43BDBF89299FB33E004C5B73 /* MovementModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementModel.swift; sourceTree = "<group>"; };
 		43BDBF91299FB3C7004C5B73 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		43BDBF93299FB3C7004C5B73 /* RecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
 		43BDBF95299FB3C7004C5B73 /* RecordsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsManager.swift; sourceTree = "<group>"; };
@@ -59,7 +61,7 @@
 		43F0989E29ACEE6A00DD4386 /* StartController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartController.storyboard; sourceTree = "<group>"; };
 		43F80A6329A36ECD004A9895 /* TimerBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBrain.swift; sourceTree = "<group>"; };
 		43F80A6529A374AA004A9895 /* UIButton + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
-		43F80A6A29A37611004A9895 /* Extension + UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
+		43F80A6A29A37611004A9895 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		4728D2BD56212DB89B0CA547 /* Pods-Yellow submarine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yellow submarine.debug.xcconfig"; path = "Target Support Files/Pods-Yellow submarine/Pods-Yellow submarine.debug.xcconfig"; sourceTree = "<group>"; };
 		8C446E14EDBEB83AABB5FD92 /* Pods-Yellow submarine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yellow submarine.release.xcconfig"; path = "Target Support Files/Pods-Yellow submarine/Pods-Yellow submarine.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +133,7 @@
 				43BDBF68299FAE9B004C5B73 /* GameViewController.storyboard */,
 				43A9E3EA29AFB4C90044EA41 /* SettingsViewController.storyboard */,
 				43A9E3EC29AFCF5E0044EA41 /* RecordsViewController.storyboard */,
+				438A869C29C5F4BF00BFFAD1 /* View.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,7 +164,7 @@
 			children = (
 				43BDBF92299FB3C7004C5B73 /* Records */,
 				43BDBF90299FB3C7004C5B73 /* Settings */,
-				43BDBF89299FB33E004C5B73 /* MoveSingleTon.swift */,
+				43BDBF89299FB33E004C5B73 /* MovementModel.swift */,
 				43F80A6329A36ECD004A9895 /* TimerBrain.swift */,
 				438A869929C5DCD600BFFAD1 /* AudioPlayerBrain.swift */,
 			);
@@ -208,7 +211,7 @@
 			children = (
 				43BDBFA4299FB46F004C5B73 /* UIview + Extension.swift */,
 				43F80A6529A374AA004A9895 /* UIButton + Extension.swift */,
-				43F80A6A29A37611004A9895 /* Extension + UIImage.swift */,
+				43F80A6A29A37611004A9895 /* UIImageView + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				43BDBF6B299FAF21004C5B73 /* LaunchScreen.storyboard in Resources */,
 				43A9E3ED29AFCF5E0044EA41 /* RecordsViewController.storyboard in Resources */,
 				43BDBF69299FAE9C004C5B73 /* GameViewController.storyboard in Resources */,
+				438A869D29C5F4BF00BFFAD1 /* View.xib in Resources */,
 				43BDBFA3299FB42E004C5B73 /* submarineOst.mp3 in Resources */,
 				43F0989F29ACEE6A00DD4386 /* StartController.storyboard in Resources */,
 				43BDBF5E299FAE80004C5B73 /* Assets.xcassets in Resources */,
@@ -352,7 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				438BD05E29C492D6002D73F0 /* RecordsData.xcdatamodeld in Sources */,
-				43BDBF8A299FB33E004C5B73 /* MoveSingleTon.swift in Sources */,
+				43BDBF8A299FB33E004C5B73 /* MovementModel.swift in Sources */,
 				43BDBF9D299FB3C8004C5B73 /* RecordsManager.swift in Sources */,
 				43BDBF70299FB02D004C5B73 /* GameViewController.swift in Sources */,
 				43BDBF55299FAE7E004C5B73 /* AppDelegate.swift in Sources */,
@@ -365,7 +369,7 @@
 				43F80A6429A36ECD004A9895 /* TimerBrain.swift in Sources */,
 				438A869A29C5DCD600BFFAD1 /* AudioPlayerBrain.swift in Sources */,
 				43BDBF76299FB03F004C5B73 /* SettingsViewController.swift in Sources */,
-				43F80A6B29A37611004A9895 /* Extension + UIImage.swift in Sources */,
+				43F80A6B29A37611004A9895 /* UIImageView + Extension.swift in Sources */,
 				43BDBF9B299FB3C8004C5B73 /* RecordCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,6 +507,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = StartController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -535,6 +540,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = StartController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

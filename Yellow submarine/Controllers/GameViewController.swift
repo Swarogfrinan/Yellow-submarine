@@ -3,11 +3,7 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     
-    
-    private var oxygenView = UIView()
-    
-    //MARK: Rotate Interface
-    
+    //MARK: Auto-Rotate Interface
     override var shouldAutorotate: Bool {
         return true
     }
@@ -41,9 +37,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var submarinePlayerView: UIView!
     @IBOutlet weak var submarinePlayerImage: UIImageView!
     @IBOutlet weak var oxygenProgressView: UIProgressView!
-    
     ///EnemiesView
-    
     @IBOutlet weak var fishOneImage: UIImageView!
     @IBOutlet weak var fishSecondImage: UIImageView!
     @IBOutlet weak var boatShipImage: UIImageView!
@@ -51,7 +45,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var sharkImage: UIImageView!
     @IBOutlet weak var krakenImage: UIImageView!
     
-    //MARK: TIMERS
+    //MARK: Game timers
     private var fishTimer = Timer()
     private var secondFishTimer = Timer()
     private var krakenTimer = Timer()
@@ -60,14 +54,12 @@ class GameViewController: UIViewController {
     private var boatTimer = Timer()
     private var oxygenTimer = Timer()
     
-    
-    
-    //MARK: - State
-    let settingsVC = SettingsViewController()
+    //MARK: - Constant
+    private let settingsVC = SettingsViewController()
     private let audioPlayerModel = AudioPlayerModel()
     private let timerModel = TimerModel()
-    let recordsManager = RecordsManager()
-    var countFish : Int = 0
+    private let recordsManager = RecordsManager()
+    private  var countFish : Int = 0
     
     //MARK: - Lifecycle
     
@@ -79,8 +71,7 @@ class GameViewController: UIViewController {
         audioPlayerModel.switchPlayer()
     }
     
-    //MARK: - ViewDidLoad
-    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUserSubmarine()
@@ -93,20 +84,19 @@ class GameViewController: UIViewController {
         showKraken()
     }
     
-    //MARK: - Бар с кислородом
-    
-    
-    
     //MARK: IBAction Methods
     
     @IBAction func swimUpButtonPressed(_ sender: UIButton) {
+
         UIView.animate(withDuration: 0.5) {
+            sender.startAnimatingPressActions()
             self.moveUpAndDown(directions: .up)
         }
     }
     
-    @IBAction func swimDownButtonPressed(_ sender: UIButton) {
+    @IBAction func swimDownButtonPressed(_ sender: UIButton) {        
         UIView.animate(withDuration: 0.5) {
+            sender.startAnimatingPressActions()
             self.moveUpAndDown(directions: .down)
         }
     }
@@ -119,6 +109,7 @@ class GameViewController: UIViewController {
     
     
     @IBAction func pauseMusicButtonPressed(_ sender: UIButton) {
+        sender.startAnimatingPressActions()
         audioPlayerModel.switchPlayer()
     }
 }
@@ -127,36 +118,13 @@ class GameViewController: UIViewController {
 
 private extension GameViewController {
     
-    func setupOxygenbar() {
-        oxygenProgressView.setProgress(1, animated: false)
-        oxygenTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
-            if self.oxygenProgressView.progress != 0 {
-                UIView.animate(withDuration: 2) { [self] in
-                    oxygenProgressView.progress -= 1 / 10
-                    if submarinePlayerView.frame.origin.y < -150 {
-                        oxygenProgressView.progress += 3/10
-                    } else if submarinePlayerView.frame.origin.y >= 270 {
-                        print("Death by reason - hitting the ground")
-                        oxygenProgressView.progress = 0
-                    }
-                }
-            }
-            if self.oxygenProgressView.progress == 0 {
-                UIView.animate(withDuration: 0.4) {
-                    print("Death by reason - ran out of oxygen")
-                    self.loseGame(life: false)
-                }
-            }
-        }
-        )}
-    
-    func loseGame(life : Bool) {
-        if life {
+    func loseGame(alive : Bool) {
+        if alive {
             self.dyingBlurView.alpha = 0
         } else {
             invalidateGameTimers()
             self.dyingBlurView.alpha = 1
-            print("Final count = \(countFish)")
+            print("Final game count = \(countFish)")
         }
     }
     
@@ -177,6 +145,30 @@ private extension GameViewController {
             submarinePlayerImage.image = image
         }
     }
+    
+    func setupOxygenbar() {
+        oxygenProgressView.setProgress(1, animated: false)
+        
+        oxygenTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
+            
+            if self.oxygenProgressView.progress != 0 {
+                UIView.animate(withDuration: 2) { [self] in
+                    oxygenProgressView.progress -= 1 / 10
+                    if submarinePlayerView.frame.origin.y < -150 {
+                        oxygenProgressView.progress += 3/10
+                    }
+                }
+            }
+            
+            if self.oxygenProgressView.progress == 0 ||  self.submarinePlayerView.frame.origin.y >= 270 {
+                UIView.animate(withDuration: 0.4) {
+                    print("Death by reason - ran out of oxygen")
+                    self.loseGame(alive: false)
+                }
+            }
+        }
+        )}
+    
     
     func showFish() {
         fishTimer =  Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 6...20), repeats: true, block: { _ in
