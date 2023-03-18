@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C1B2A3E06B8ECDAC07CE288 /* Pods_Yellow_submarine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285213F33B205B6A6E80B2EE /* Pods_Yellow_submarine.framework */; };
+		438A869A29C5DCD600BFFAD1 /* AudioPlayerBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438A869929C5DCD600BFFAD1 /* AudioPlayerBrain.swift */; };
 		438BD05E29C492D6002D73F0 /* RecordsData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 438BD05C29C492D6002D73F0 /* RecordsData.xcdatamodeld */; };
 		43A9E3EB29AFB4C90044EA41 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43A9E3EA29AFB4C90044EA41 /* SettingsViewController.storyboard */; };
 		43A9E3ED29AFCF5E0044EA41 /* RecordsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43A9E3EC29AFCF5E0044EA41 /* RecordsViewController.storyboard */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		285213F33B205B6A6E80B2EE /* Pods_Yellow_submarine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yellow_submarine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		438A869929C5DCD600BFFAD1 /* AudioPlayerBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerBrain.swift; sourceTree = "<group>"; };
 		438BD05D29C492D6002D73F0 /* z.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = z.xcdatamodel; sourceTree = "<group>"; };
 		43A9E3EA29AFB4C90044EA41 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		43A9E3EC29AFCF5E0044EA41 /* RecordsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecordsViewController.storyboard; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 			name = RecordViewController;
 			sourceTree = "<group>";
 		};
+		438A869B29C5E11600BFFAD1 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
 		43BDBF48299FAE7E004C5B73 = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +118,7 @@
 				43BDBF8F299FB3B0004C5B73 /* Model */,
 				43BDBF6C299FAF37004C5B73 /* View */,
 				43BDBF6E299FB021004C5B73 /* Controllers */,
-				43BDBF6D299FAF3F004C5B73 /* Support Files */,
+				43BDBF6D299FAF3F004C5B73 /* Supporting */,
 				43F80A6729A374C0004A9895 /* Resources */,
 			);
 			path = "Yellow submarine";
@@ -125,13 +135,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		43BDBF6D299FAF3F004C5B73 /* Support Files */ = {
+		43BDBF6D299FAF3F004C5B73 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				43F80A6929A37544004A9895 /* Extension */,
 				43F80A6829A37535004A9895 /* Application */,
-				43BDBFA2299FB42E004C5B73 /* submarineOst.mp3 */,
+				438A869B29C5E11600BFFAD1 /* Player */,
 			);
-			path = "Support Files";
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 		43BDBF6E299FB021004C5B73 /* Controllers */ = {
@@ -152,6 +163,7 @@
 				43BDBF90299FB3C7004C5B73 /* Settings */,
 				43BDBF89299FB33E004C5B73 /* MoveSingleTon.swift */,
 				43F80A6329A36ECD004A9895 /* TimerBrain.swift */,
+				438A869929C5DCD600BFFAD1 /* AudioPlayerBrain.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,7 +199,6 @@
 			children = (
 				43BDBF54299FAE7E004C5B73 /* AppDelegate.swift */,
 				43BDBF56299FAE7E004C5B73 /* SceneDelegate.swift */,
-				43F80A6929A37544004A9895 /* Extension */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -352,6 +363,7 @@
 				43BDBF72299FB033004C5B73 /* RecordsViewController.swift in Sources */,
 				43BDBFA5299FB46F004C5B73 /* UIview + Extension.swift in Sources */,
 				43F80A6429A36ECD004A9895 /* TimerBrain.swift in Sources */,
+				438A869A29C5DCD600BFFAD1 /* AudioPlayerBrain.swift in Sources */,
 				43BDBF76299FB03F004C5B73 /* SettingsViewController.swift in Sources */,
 				43F80A6B29A37611004A9895 /* Extension + UIImage.swift in Sources */,
 				43BDBF9B299FB3C8004C5B73 /* RecordCell.swift in Sources */,

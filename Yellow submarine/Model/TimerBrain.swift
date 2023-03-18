@@ -1,6 +1,6 @@
 import Foundation
 
-struct timerBrain {
+struct TimerModel {
     func randomTimerNumber(in range: ClosedRange<Double>) -> Double {
         return(Double.random(in: 11...120))
     }

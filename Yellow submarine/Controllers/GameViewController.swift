@@ -64,19 +64,19 @@ class GameViewController: UIViewController {
     
     //MARK: - State
     let settingsVC = SettingsViewController()
-    let audioBrain = AudioBrain()
-    private let gameTimer = TimerModel()
+    private let audioPlayerModel = AudioPlayerModel()
+    private let timerModel = TimerModel()
     let recordsManager = RecordsManager()
     var countFish : Int = 0
     
     //MARK: - Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
-        audioBrain.playerWillAppear()
+        audioPlayerModel.playerWillAppear()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        audioBrain.switchPlayer()
+        audioPlayerModel.switchPlayer()
     }
     
     //MARK: - ViewDidLoad
@@ -114,12 +114,12 @@ class GameViewController: UIViewController {
     @IBAction func resumeGameButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
         recordsManager.saveGameResults(withCount: countFish)
-        audioBrain.switchPlayer()
+        audioPlayerModel.switchPlayer()
     }
     
     
     @IBAction func pauseMusicButtonPressed(_ sender: UIButton) {
-        audioBrain.switchPlayer()
+        audioPlayerModel.switchPlayer()
     }
 }
 
@@ -179,12 +179,12 @@ private extension GameViewController {
     }
     
     func showFish() {
-        fishTimer =  Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 6...20), repeats: true, block: { _ in
+        fishTimer =  Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 6...20), repeats: true, block: { _ in
             self.fishOneImage.animateImageView(withDuration: 5, delay: 0.3, image: self.fishOneImage)
         })
     }
     func showSecondFish() {
-        secondFishTimer =  Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 5...13), repeats: true, block: { _ in
+        secondFishTimer =  Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 5...13), repeats: true, block: { _ in
             self.fishSecondImage.animateImageView(withDuration: 4, delay: 0.3, image: self.fishSecondImage)
             self.countFish += 1
             print("\(self.countFish) = secondFish")
@@ -192,7 +192,7 @@ private extension GameViewController {
     }
     
     func showBoat() {
-        boatTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 11...25), repeats: true, block: { _ in
+        boatTimer = Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 11...25), repeats: true, block: { _ in
             self.boatShipImage.animateImageView(withDuration: 7, delay: 0.3, image: self.boatShipImage)
             self.countFish += 1
             print("\(self.countFish) = Boat")
@@ -200,14 +200,14 @@ private extension GameViewController {
     }
     
     func showShark() {
-        sharkTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 18...45), repeats: true, block: { _ in
+        sharkTimer = Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 18...45), repeats: true, block: { _ in
             self.sharkImage.animateImageView(withDuration: 13, delay: 0.7, image: self.sharkImage)
             self.countFish += 1
             print("\(self.countFish) = Shark")
         })
     }
     func showJellyfish() {
-        jellyfishTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 11...43), repeats: true, block: { _ in
+        jellyfishTimer = Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 11...43), repeats: true, block: { _ in
             self.jellyfishImage.animateImageView(withDuration: 4, delay: 0.2, image: self.jellyfishImage)
             self.countFish += 1
             print("\(self.countFish) = jellyfish")
@@ -215,7 +215,7 @@ private extension GameViewController {
     }
     
     func showKraken() {
-        krakenTimer = Timer.scheduledTimer(withTimeInterval: gameTimer.randomTimerNumber(in: 80...120), repeats: true, block: { _ in
+        krakenTimer = Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 80...120), repeats: true, block: { _ in
             self.krakenImage.animateImageView(withDuration: 25, delay: 6, image: self.krakenImage)
             self.countFish += 1
             print("\(self.countFish) = kraken")

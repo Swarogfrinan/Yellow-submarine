@@ -1,7 +1,7 @@
 import Foundation
 import AVFoundation
 
-class AudioBrain {
+class AudioPlayerModel {
     
     private var audioPlayer = AVAudioPlayer()
     
