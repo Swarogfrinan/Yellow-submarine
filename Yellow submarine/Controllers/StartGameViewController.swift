@@ -100,7 +100,7 @@ private extension StartGameViewController {
     
     func goToGameViewController() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
-            guard let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as? GameViewController else {
+            guard let controller = UIStoryboard(name: "GameViewController", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as? GameViewController else {
                 return
             }
             
