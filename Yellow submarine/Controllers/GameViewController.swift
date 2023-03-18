@@ -66,8 +66,9 @@ class GameViewController: UIViewController {
     //MARK: Аудиоплэйер
     private var audioPlayer = AVAudioPlayer()
     private var audioCounter : Int = 0
-    private var records = [Record]()
+    
     private let gameTimer = GameTimer()
+    let recordsManager = RecordsManager()
     var countFish : Int = 0
     
     //MARK: - Lifecycle
@@ -119,7 +120,6 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func resumeGameButtonPressed(_ sender: UIButton) {
-        saveGameResults()
         self.dismiss(animated: true, completion: nil)
         audioPlayer.stop()
     }
@@ -172,7 +172,7 @@ private extension GameViewController {
             invalidateGameTimers()
             self.dyingBlurView.alpha = 1
             print("Final count = \(countFish)")
-            saveGameResults()
+            recordsManager.saveGameResults(withCount: countFish)
         }
     }
     
@@ -183,20 +183,7 @@ private extension GameViewController {
         }
     }
     
-    func saveGameResults() {
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM, h:mm a"
-        formatter.amSymbol = "AM"
-        formatter.pmSymbol = "PM"
-        formatter.timeZone = .current
-        let dateString = formatter.string(from: date)
-        print("Last game date - \(dateString)")
-        let newRecord = Record(score: countFish, date: dateString)
-        RecordsManager.shared.saveRecords(newRecord)
-        
-        print("\(countFish) was saved to UserDefaults")
-    }
+   
     
     //MARK: Появление существ
     
