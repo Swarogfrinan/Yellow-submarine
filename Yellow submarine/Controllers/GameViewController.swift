@@ -67,7 +67,7 @@ class GameViewController: UIViewController {
     private var audioPlayer = AVAudioPlayer()
     private var audioCounter : Int = 0
     
-    private let gameTimer = GameTimer()
+    private let gameTimer = timerBrain()
     let recordsManager = RecordsManager()
     var countFish : Int = 0
     
@@ -78,7 +78,7 @@ class GameViewController: UIViewController {
             audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "submarineOst", ofType: "mp3")!))
             audioPlayer.prepareToPlay()
         } catch {
-            fatalError("Game music cannot be played")
+            fatalError("Game music submarineOst cannot be played")
         }
     }
     
@@ -121,6 +121,7 @@ class GameViewController: UIViewController {
     
     @IBAction func resumeGameButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+        recordsManager.saveGameResults(withCount: countFish)
         audioPlayer.stop()
     }
     
@@ -144,7 +145,7 @@ private extension GameViewController {
     
     func setupOxygenbar() {
         oxygenProgressView.setProgress(1, animated: false)
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
+      oxygenTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
             if self.oxygenProgressView.progress != 0 {
                 UIView.animate(withDuration: 2) { [self] in
                     oxygenProgressView.progress -= 1 / 10
@@ -172,12 +173,11 @@ private extension GameViewController {
             invalidateGameTimers()
             self.dyingBlurView.alpha = 1
             print("Final count = \(countFish)")
-            recordsManager.saveGameResults(withCount: countFish)
         }
     }
     
     func invalidateGameTimers() {
-        let timerArray = [fishTimer, secondFishTimer, boatTimer, sharkTimer, jellyfishTimer, krakenTimer]
+        let timerArray = [fishTimer, secondFishTimer, boatTimer, sharkTimer, jellyfishTimer, krakenTimer, oxygenTimer]
         for timers in timerArray {
             timers.invalidate()
         }
