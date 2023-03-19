@@ -3,15 +3,15 @@ import UIKit
 class StartGameViewController: UIViewController {
     
     // MARK: - Constans
-    var counter : Int = 0
     let settingsVc = SettingsViewController()
-    
+    var timerModel = TimerModel()
     // MARK: - IBOutlet
     @IBOutlet weak var playerSubmarineImage: UIImageView!
     @IBOutlet weak var boatImage: UIImageView!
     @IBOutlet weak var fishImage: UIImageView!
     @IBOutlet weak var secondFishImage: UIImageView!
     @IBOutlet weak var thirdFishImage: UIImageView!
+    @IBOutlet weak var kracenImage: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -30,7 +30,8 @@ class StartGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupAnimation()
+        setupAnimations()
+        showCracen()
         setupGesture()
         playerSubmarineImage.dropShadow()
         playButton.dropShadow()
@@ -67,7 +68,7 @@ private extension StartGameViewController {
             playerSubmarineImage.image = image
         }
     }
-    private func setupAnimation() {
+    private func setupAnimations() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [self] _ in
             playerSubmarineImage.setAfkAnimate(withDuration: 0.4)
             fishImage.setAfkAnimate(withDuration: 0.4)
@@ -78,6 +79,12 @@ private extension StartGameViewController {
         Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
             self.boatImage.setAfkAnimateBoat(image: self.boatImage)
         }
+    }
+    
+    private func showCracen() {
+        Timer.scheduledTimer(withTimeInterval: 25, repeats: true) { _ in
+            self.kracenImage.animateKracen(withDuration: 19, delay: 0, image: self.kracenImage)
+            }
     }
     
     private func setupGesture() {
@@ -94,7 +101,6 @@ private extension StartGameViewController {
                 self.playerSubmarineImage.frame.origin.x += 900
             }
         }
-        
         goToGameViewController()
     }
     

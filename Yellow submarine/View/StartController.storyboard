@@ -103,11 +103,12 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="10" height="8"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Kracen" translatesAutoresizingMaskIntoConstraints="NO" id="P4E-dh-4Sh">
-                                <rect key="frame" x="0.0" y="764" width="183" height="84"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kracen" translatesAutoresizingMaskIntoConstraints="NO" id="P4E-dh-4Sh">
+                                <rect key="frame" x="-140" y="737" width="140" height="140"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="81" id="DM5-nd-iFL"/>
+                                    <constraint firstAttribute="height" constant="140" id="Ivs-ki-Wnz"/>
+                                    <constraint firstAttribute="width" constant="140" id="UcZ-9a-bSl"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -123,6 +124,7 @@
                             <constraint firstItem="6AM-7P-1f7" firstAttribute="leading" secondItem="iEU-Sh-gKb" secondAttribute="trailing" constant="8.5" id="Dhb-dF-ccw"/>
                             <constraint firstItem="qT9-fp-LG5" firstAttribute="trailing" secondItem="icw-UG-2BP" secondAttribute="trailing" id="FrY-17-dGC"/>
                             <constraint firstItem="qT9-fp-LG5" firstAttribute="leading" secondItem="seL-37-tun" secondAttribute="leading" id="HGf-w4-mYs"/>
+                            <constraint firstAttribute="bottom" secondItem="P4E-dh-4Sh" secondAttribute="bottom" constant="-25" id="KDy-xr-5cz"/>
                             <constraint firstItem="lwc-VK-PEk" firstAttribute="top" secondItem="AhO-fC-uBh" secondAttribute="top" constant="18.5" id="Kb3-fJ-OFB"/>
                             <constraint firstItem="6AM-7P-1f7" firstAttribute="top" secondItem="FjT-NQ-c0Q" secondAttribute="bottom" constant="30" id="LG1-Bq-YCJ"/>
                             <constraint firstItem="qT9-fp-LG5" firstAttribute="top" secondItem="GhW-ZJ-iU5" secondAttribute="bottom" constant="32" id="M3I-8f-dHW"/>
@@ -143,6 +145,7 @@
                             <constraint firstItem="GhW-ZJ-iU5" firstAttribute="top" secondItem="trX-OB-VIN" secondAttribute="topMargin" constant="-44" id="gaJ-e0-SRm"/>
                             <constraint firstItem="qT9-fp-LG5" firstAttribute="leading" secondItem="AhO-fC-uBh" secondAttribute="leading" id="gvG-Zd-pQW"/>
                             <constraint firstItem="4D2-B9-7aD" firstAttribute="trailing" secondItem="sKi-dR-ByL" secondAttribute="trailing" id="hJe-SI-d6K"/>
+                            <constraint firstItem="P4E-dh-4Sh" firstAttribute="leading" secondItem="AhO-fC-uBh" secondAttribute="leading" constant="-140" id="kUP-av-i0u"/>
                             <constraint firstItem="iEU-Sh-gKb" firstAttribute="leading" secondItem="trX-OB-VIN" secondAttribute="leadingMargin" id="nxj-Wu-juL"/>
                             <constraint firstItem="FjT-NQ-c0Q" firstAttribute="leading" secondItem="AhO-fC-uBh" secondAttribute="leading" constant="260" id="uKV-LF-eMS"/>
                             <constraint firstItem="FjT-NQ-c0Q" firstAttribute="top" secondItem="qT9-fp-LG5" secondAttribute="bottom" constant="81" id="uqR-ao-TTW"/>
@@ -157,6 +160,7 @@
                     <connections>
                         <outlet property="boatImage" destination="GhW-ZJ-iU5" id="tzw-X0-Een"/>
                         <outlet property="fishImage" destination="6AM-7P-1f7" id="4aM-8Y-DhT"/>
+                        <outlet property="kracenImage" destination="P4E-dh-4Sh" id="KlP-5w-JTl"/>
                         <outlet property="playButton" destination="FjT-NQ-c0Q" id="C5F-B4-bUg"/>
                         <outlet property="playerSubmarineImage" destination="seL-37-tun" id="BtP-1h-klM"/>
                         <outlet property="secondFishImage" destination="e8j-5z-92a" id="a4a-Hj-PJQ"/>
