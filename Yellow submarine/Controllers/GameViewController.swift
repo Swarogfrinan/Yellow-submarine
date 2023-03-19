@@ -78,18 +78,13 @@ class GameViewController: UIViewController {
     //MARK: IBAction Methods
     
     @IBAction func swimUpButtonPressed(_ sender: UIButton) {
-        
-        UIView.animate(withDuration: 0.5) {
-            sender.startAnimatingPressActions()
+        sender.startAnimatingPressActions()
             self.moveUpAndDown(directions: .up)
-        }
     }
     
     @IBAction func swimDownButtonPressed(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.5) {
-            sender.startAnimatingPressActions()
+        sender.startAnimatingPressActions()
             self.moveUpAndDown(directions: .down)
-        }
     }
     
     @IBAction func resumeGameButtonPressed(_ sender: UIButton) {
