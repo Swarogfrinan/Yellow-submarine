@@ -62,10 +62,10 @@ extension UIImageView {
     
     func setAfkAnimateBoat(image: UIImageView) {
         UIView.animate(withDuration: 0.8) {
-            image.transform = image.transform.rotated(by: 0.2)
+            image.transform = image.transform.rotated(by: 0.25)
         } completion: { _ in
             UIView.animate(withDuration: 0.8) {
-                image.transform = image.transform.rotated(by: -0.2)
+                image.transform = image.transform.rotated(by: -0.25)
 
             }
         }
