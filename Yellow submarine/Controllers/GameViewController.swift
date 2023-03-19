@@ -45,19 +45,10 @@ class GameViewController: UIViewController {
     @IBOutlet weak var sharkImage: UIImageView!
     @IBOutlet weak var krakenImage: UIImageView!
     
-    //MARK: Game timers
-    private var fishTimer = Timer()
-    private var secondFishTimer = Timer()
-    private var krakenTimer = Timer()
-    private var jellyfishTimer = Timer()
-    private var sharkTimer = Timer()
-    private var boatTimer = Timer()
-    private var oxygenTimer = Timer()
-    
     //MARK: - Constant
     private let settingsVC = SettingsViewController()
     private let audioPlayerModel = AudioPlayerModel()
-    private let timerModel = TimerModel()
+    private var timerModel = TimerModel()
     private let recordsManager = RecordsManager()
     private  var countFish : Int = 0
     
@@ -87,7 +78,7 @@ class GameViewController: UIViewController {
     //MARK: IBAction Methods
     
     @IBAction func swimUpButtonPressed(_ sender: UIButton) {
-
+        
         UIView.animate(withDuration: 0.5) {
             sender.startAnimatingPressActions()
             self.moveUpAndDown(directions: .up)
@@ -130,20 +121,11 @@ private extension GameViewController {
         if alive {
             self.dyingBlurView.alpha = 0
         } else {
-            invalidateGameTimers()
+            timerModel.invalidateGameTimers()
             self.dyingBlurView.alpha = 1
             print("Final game count = \(countFish)")
         }
     }
-    
-    func invalidateGameTimers() {
-        let timerArray = [fishTimer, secondFishTimer, boatTimer, sharkTimer, jellyfishTimer, krakenTimer, oxygenTimer]
-        for timers in timerArray {
-            timers.invalidate()
-        }
-    }
-    
-    
     
     //MARK: Появление существ
     
@@ -157,7 +139,7 @@ private extension GameViewController {
     func setupOxygenbar() {
         oxygenProgressView.setProgress(1, animated: false)
         
-        oxygenTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
+        timerModel.oxygenTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
             
             if self.oxygenProgressView.progress != 0 {
                 UIView.animate(withDuration: 2) { [self] in
@@ -179,12 +161,13 @@ private extension GameViewController {
     
     
     func showFish() {
-        fishTimer =  Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 6...20), repeats: true, block: { _ in
+        timerModel.fishTimer =  Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 6...20), repeats: true, block: { _ in
             self.fishOneImage.animateImageView(withDuration: 5, delay: 0.3, image: self.fishOneImage)
         })
     }
+    
     func showSecondFish() {
-        secondFishTimer =  Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 5...13), repeats: true, block: { _ in
+        timerModel.secondFishTimer =  Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 5...13), repeats: true, block: { _ in
             self.fishSecondImage.animateImageView(withDuration: 4, delay: 0.3, image: self.fishSecondImage)
             self.countFish += 1
             print("\(self.countFish) = secondFish")
@@ -192,7 +175,7 @@ private extension GameViewController {
     }
     
     func showBoat() {
-        boatTimer = Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 11...25), repeats: true, block: { _ in
+        timerModel.boatTimer = Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 11...25), repeats: true, block: { _ in
             self.boatShipImage.animateImageView(withDuration: 7, delay: 0.3, image: self.boatShipImage)
             self.countFish += 1
             print("\(self.countFish) = Boat")
@@ -200,14 +183,14 @@ private extension GameViewController {
     }
     
     func showShark() {
-        sharkTimer = Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 18...45), repeats: true, block: { _ in
+        timerModel.sharkTimer = Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 18...45), repeats: true, block: { _ in
             self.sharkImage.animateImageView(withDuration: 13, delay: 0.7, image: self.sharkImage)
             self.countFish += 1
             print("\(self.countFish) = Shark")
         })
     }
     func showJellyfish() {
-        jellyfishTimer = Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 11...43), repeats: true, block: { _ in
+        timerModel.jellyfishTimer = Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 11...43), repeats: true, block: { _ in
             self.jellyfishImage.animateImageView(withDuration: 4, delay: 0.2, image: self.jellyfishImage)
             self.countFish += 1
             print("\(self.countFish) = jellyfish")
@@ -215,7 +198,7 @@ private extension GameViewController {
     }
     
     func showKraken() {
-        krakenTimer = Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 80...120), repeats: true, block: { _ in
+        timerModel.krakenTimer = Timer.scheduledTimer(withTimeInterval: timerModel.randomTimerNumber(in: 80...120), repeats: true, block: { _ in
             self.krakenImage.animateImageView(withDuration: 25, delay: 6, image: self.krakenImage)
             self.countFish += 1
             print("\(self.countFish) = kraken")
