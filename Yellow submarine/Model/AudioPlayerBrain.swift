@@ -1,9 +1,10 @@
 import Foundation
+import UIKit
 import AVFoundation
 
 class AudioPlayerModel {
     
-    private var audioPlayer = AVAudioPlayer()
+     var audioPlayer = AVAudioPlayer()
     
      func playerWillAppear() {
         do {
@@ -14,7 +15,7 @@ class AudioPlayerModel {
         }
     }
     
-     func switchPlayer() {
+    func switchPlayer() {
          if audioPlayer.isPlaying {
              audioPlayer.stop()
          } else {

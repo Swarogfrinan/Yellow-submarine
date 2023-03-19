@@ -94,7 +94,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    @IBAction func swimDownButtonPressed(_ sender: UIButton) {        
+    @IBAction func swimDownButtonPressed(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5) {
             sender.startAnimatingPressActions()
             self.moveUpAndDown(directions: .down)
@@ -103,12 +103,20 @@ class GameViewController: UIViewController {
     
     @IBAction func resumeGameButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+        sender.startAnimatingPressActions()
         recordsManager.saveGameResults(withCount: countFish)
         audioPlayerModel.switchPlayer()
     }
     
     
     @IBAction func pauseMusicButtonPressed(_ sender: UIButton) {
+        if audioPlayerModel.audioPlayer.isPlaying {
+            sender.setImage(UIImage(systemName: "volume.slash"), for: .normal)
+            sender.setTitle("Stop", for: .normal)
+        } else {
+            sender.setImage(UIImage(systemName: "volume.2"),for: .normal)
+            sender.setTitle("Play", for: .normal)
+        }
         sender.startAnimatingPressActions()
         audioPlayerModel.switchPlayer()
     }
