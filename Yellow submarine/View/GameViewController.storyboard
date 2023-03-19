@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -48,42 +49,39 @@
                                 <rect key="frame" x="0.0" y="339" width="896" height="54"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="foneGround" translatesAutoresizingMaskIntoConstraints="NO" id="T11-vw-wgX">
-                                        <rect key="frame" x="0.0" y="27" width="896" height="48"/>
+                                        <rect key="frame" x="0.0" y="8" width="896" height="77"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                         </accessibility>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="31N-H4-vx4">
-                                        <rect key="frame" x="15" y="0.0" width="200" height="60"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="31N-H4-vx4">
+                                        <rect key="frame" x="49.999999999999993" y="8" width="107.33333333333331" height="34.333333333333336"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhV-jO-7gL">
-                                                <rect key="frame" x="0.0" y="25.666666666666689" width="115" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="53.666666666666664" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="volume.fill" catalog="system" title="Stop">
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="volume.2.fill" catalog="system" symbolScale="large"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="pauseMusicButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hbf-pV-B9n"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OM4-Qt-7Vk">
-                                                <rect key="frame" x="150" y="10" width="50" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OM4-Qt-7Vk">
+                                                <rect key="frame" x="53.666666666666671" y="10.333333333333314" width="53.666666666666671" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="iRF-gV-1xx"/>
-                                            <constraint firstAttribute="height" constant="60" id="km2-1M-fiA"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="31N-H4-vx4" firstAttribute="leading" secondItem="bMB-G6-wcG" secondAttribute="leading" constant="15" id="5ks-AO-zUF"/>
-                                    <constraint firstItem="31N-H4-vx4" firstAttribute="top" secondItem="bMB-G6-wcG" secondAttribute="top" id="XJB-fA-UkY"/>
+                                    <constraint firstItem="31N-H4-vx4" firstAttribute="leading" secondItem="bMB-G6-wcG" secondAttribute="leading" constant="50" id="C4r-IK-BRd"/>
+                                    <constraint firstItem="31N-H4-vx4" firstAttribute="top" secondItem="bMB-G6-wcG" secondAttribute="top" constant="8" id="Wo4-tk-a9R"/>
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e0g-BQ-wwM" userLabel="GameView">
@@ -92,39 +90,25 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yld-1H-g3E" userLabel="buttonsView">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="271"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zPg-wW-O4x" userLabel="UpView" customClass="UpButton">
-                                                <rect key="frame" x="49" y="43" width="61" height="63"/>
+                                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svd-6r-BzN">
+                                                <rect key="frame" x="43" y="10" width="75" height="75"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svd-6r-BzN">
-                                                        <rect key="frame" x="0.0" y="-10" width="67" height="89"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="upButtonImage" buttonSize="medium"/>
-                                                        <connections>
-                                                            <action selector="swimUpButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LFv-e0-5es"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wZX-Df-PzC" userLabel="DownView" customClass="downButton">
-                                                <rect key="frame" x="49" y="200" width="61" height="63"/>
+                                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="upButtonImage" buttonSize="medium"/>
+                                                <connections>
+                                                    <action selector="swimUpButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LFv-e0-5es"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9t9-Lc-QcE">
+                                                <rect key="frame" x="43" y="190" width="75" height="75"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9t9-Lc-QcE">
-                                                        <rect key="frame" x="-11" y="-10" width="82" height="83"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="downButtonImage"/>
-                                                        <connections>
-                                                            <action selector="swimDownButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w4S-yg-oe2"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="downButtonImage"/>
+                                                <connections>
+                                                    <action selector="swimDownButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w4S-yg-oe2"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.96989434959999998" green="0.83128291369999996" blue="0.1221084669" alpha="0.92079819432947019" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
@@ -321,7 +305,7 @@
         <image name="ocean" width="170.66667175292969" height="170.66667175292969"/>
         <image name="submarine" width="170.66667175292969" height="170.66667175292969"/>
         <image name="upButtonImage" width="66.666664123535156" height="66.666664123535156"/>
-        <image name="volume.fill" catalog="system" width="128" height="125"/>
+        <image name="volume.2.fill" catalog="system" width="128" height="88"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

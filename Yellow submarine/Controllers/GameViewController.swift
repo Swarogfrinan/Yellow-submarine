@@ -100,7 +100,7 @@ class GameViewController: UIViewController {
             sender.setImage(UIImage(systemName: "volume.slash"), for: .normal)
             sender.setTitle("Stop", for: .normal)
         } else {
-            sender.setImage(UIImage(systemName: "volume.2"),for: .normal)
+            sender.setImage(UIImage(systemName: "volume.2.fill"),for: .normal)
             sender.setTitle("Play", for: .normal)
         }
         sender.startAnimatingPressActions()
