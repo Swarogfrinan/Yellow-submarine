@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="896" height="67"/>
                                 <subviews>
                                     <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ocean" highlightedImage="boatShip" translatesAutoresizingMaskIntoConstraints="NO" id="wCz-3R-apz">
-                                        <rect key="frame" x="0.0" y="20" width="896" height="88"/>
+                                        <rect key="frame" x="0.0" y="18" width="896" height="88"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="88" id="j7e-5q-rs3"/>
                                         </constraints>
@@ -32,7 +32,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="boatShip" translatesAutoresizingMaskIntoConstraints="NO" id="z2T-cy-M7f">
-                                                <rect key="frame" x="850" y="-18" width="80" height="80"/>
+                                                <rect key="frame" x="850" y="-2" width="80" height="80"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -48,27 +48,24 @@
                                 </accessibility>
                                 <constraints>
                                     <constraint firstItem="wCz-3R-apz" firstAttribute="top" secondItem="NxD-xS-cHO" secondAttribute="top" constant="18" id="1E8-4g-vm5"/>
-                                    <constraint firstItem="wCz-3R-apz" firstAttribute="top" secondItem="NxD-xS-cHO" secondAttribute="top" constant="20" symbolic="YES" id="QpD-Nh-yAJ"/>
                                     <constraint firstItem="wCz-3R-apz" firstAttribute="leading" secondItem="NxD-xS-cHO" secondAttribute="leading" id="Vlb-fD-Zd1"/>
-                                    <constraint firstItem="wCz-3R-apz" firstAttribute="top" secondItem="NxD-xS-cHO" secondAttribute="top" constant="20" id="r9i-ic-q08"/>
                                     <constraint firstAttribute="trailing" secondItem="wCz-3R-apz" secondAttribute="trailing" id="wYm-wi-ohI"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMB-G6-wcG" customClass="Ground">
                                 <rect key="frame" x="0.0" y="339" width="896" height="75"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="foneGround" translatesAutoresizingMaskIntoConstraints="NO" id="T11-vw-wgX">
-                                        <rect key="frame" x="0.0" y="8" width="852" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foneGround" translatesAutoresizingMaskIntoConstraints="NO" id="T11-vw-wgX">
+                                        <rect key="frame" x="0.0" y="27" width="896" height="48"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                         </accessibility>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="31N-H4-vx4">
-                                        <rect key="frame" x="50" y="8" width="108" height="34"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="31N-H4-vx4" userLabel="audioButtonStack">
+                                        <rect key="frame" x="30" y="20" width="108" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhV-jO-7gL">
-                                                <rect key="frame" x="0.0" y="0.0" width="54" height="34"/>
+                                                <rect key="frame" x="0.0" y="16" width="54" height="34"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain">
                                                     <imageReference key="image" image="volume.2.fill" catalog="system" symbolScale="large"/>
@@ -78,8 +75,8 @@
                                                     <action selector="pauseMusicButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hbf-pV-B9n"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OM4-Qt-7Vk">
-                                                <rect key="frame" x="54" y="10" width="54" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OM4-Qt-7Vk">
+                                                <rect key="frame" x="54" y="0.0" width="54" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -89,8 +86,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="31N-H4-vx4" firstAttribute="leading" secondItem="bMB-G6-wcG" secondAttribute="leading" constant="50" id="C4r-IK-BRd"/>
-                                    <constraint firstItem="31N-H4-vx4" firstAttribute="top" secondItem="bMB-G6-wcG" secondAttribute="top" constant="8" id="Wo4-tk-a9R"/>
+                                    <constraint firstAttribute="bottom" secondItem="31N-H4-vx4" secondAttribute="bottom" constant="5" id="Dkk-an-2dG"/>
+                                    <constraint firstItem="31N-H4-vx4" firstAttribute="leading" secondItem="bMB-G6-wcG" secondAttribute="leading" constant="30" id="RrC-5I-f5v"/>
+                                    <constraint firstAttribute="trailing" secondItem="T11-vw-wgX" secondAttribute="trailing" id="TLl-Gp-qz9"/>
+                                    <constraint firstAttribute="bottom" secondItem="T11-vw-wgX" secondAttribute="bottom" id="cOC-UQ-9Sl"/>
+                                    <constraint firstItem="T11-vw-wgX" firstAttribute="leading" secondItem="bMB-G6-wcG" secondAttribute="leading" id="xzY-3x-ilO"/>
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0g-BQ-wwM" userLabel="GameView">
