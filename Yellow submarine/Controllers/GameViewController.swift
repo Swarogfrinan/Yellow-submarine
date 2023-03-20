@@ -17,11 +17,11 @@ class GameViewController: UIViewController {
     }
     
     //MARK: - IBOutlet Playing field
-    @IBOutlet weak var topSkyView: UIView!
+    @IBOutlet weak var topFieldView: UIView!
     @IBOutlet weak var gameView: UIView!
     @IBOutlet weak var botGroundView: UIView!
     
-    @IBOutlet weak var dyingBlurView: UIVisualEffectView!
+    @IBOutlet weak var deathView: UIVisualEffectView!
     @IBOutlet weak var resumeGameButton: UIButton!
     
     @IBOutlet weak var submarineView: UIView!
@@ -34,7 +34,7 @@ class GameViewController: UIViewController {
     //MARK: - IBOutlet Game Enemies
     
     ///Player View
-    @IBOutlet weak var submarinePlayerView: UIView!
+    @IBOutlet weak var userSubmarineView: UIView!
     @IBOutlet weak var submarinePlayerImage: UIImageView!
     @IBOutlet weak var oxygenProgressView: UIProgressView!
     ///EnemiesView
@@ -47,7 +47,7 @@ class GameViewController: UIViewController {
     
     //MARK: - Constant
     private let settingsVC = SettingsViewController()
-    private let audioPlayerModel = AudioPlayerModel()
+    private let audioplayerModel = AudioPlayerModel()
     private var timerModel = TimerModel()
     private let recordsManager = RecordsManager()
     private  var countFish : Int = 0
@@ -55,11 +55,11 @@ class GameViewController: UIViewController {
     //MARK: - Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
-        audioPlayerModel.playerWillAppear()
+        audioplayerModel.playerWillAppear()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        audioPlayerModel.switchPlayer()
+        audioplayerModel.switchPlayer()
     }
     
     //MARK: - viewDidLoad
@@ -91,12 +91,12 @@ class GameViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         sender.startAnimatingPressActions()
         recordsManager.saveGameResults(withCount: countFish)
-        audioPlayerModel.switchPlayer()
+        audioplayerModel.switchPlayer()
     }
     
     
     @IBAction func pauseMusicButtonPressed(_ sender: UIButton) {
-        if audioPlayerModel.audioPlayer.isPlaying {
+        if audioplayerModel.audioPlayer.isPlaying {
             sender.setImage(UIImage(systemName: "volume.slash"), for: .normal)
             sender.setTitle("Stop", for: .normal)
         } else {
@@ -104,7 +104,7 @@ class GameViewController: UIViewController {
             sender.setTitle("Play", for: .normal)
         }
         sender.startAnimatingPressActions()
-        audioPlayerModel.switchPlayer()
+        audioplayerModel.switchPlayer()
     }
 }
 
@@ -114,10 +114,10 @@ private extension GameViewController {
     
     func loseGame(alive : Bool) {
         if alive {
-            self.dyingBlurView.alpha = 0
+            self.deathView.alpha = 0
         } else {
             timerModel.invalidateGameTimers()
-            self.dyingBlurView.alpha = 1
+            self.deathView.alpha = 1
             print("Final game count = \(countFish)")
         }
     }
@@ -134,18 +134,16 @@ private extension GameViewController {
     func setupOxygenbar() {
         oxygenProgressView.setProgress(1, animated: false)
         
-        timerModel.oxygenTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { _ in
+        timerModel.oxygenTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { [self] _ in
             
             if self.oxygenProgressView.progress != 0 {
-                UIView.animate(withDuration: 2) { [self] in
                     oxygenProgressView.progress -= 1 / 10
-                    if submarinePlayerView.frame.origin.y < -150 {
+                    if userSubmarineView.frame.origin.y < -150 {
                         oxygenProgressView.progress += 3/10
                     }
-                }
             }
             
-            if self.oxygenProgressView.progress == 0 ||  self.submarinePlayerView.frame.origin.y >= 270 {
+            if self.oxygenProgressView.progress == 0 ||  self.userSubmarineView.frame.origin.y >= 270 {
                 UIView.animate(withDuration: 0.4) {
                     print("Death by reason - ran out of oxygen")
                     self.loseGame(alive: false)

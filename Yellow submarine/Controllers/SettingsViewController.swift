@@ -2,13 +2,11 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    //MARK: - IBOutlets
-    
+    //MARK: - IBOutlet
     @IBOutlet weak var firstSubmarineButton: UIButton!
     @IBOutlet weak var secondSubmarineButton: UIButton!
     @IBOutlet weak var thirdSubmarineButton: UIButton!
     @IBOutlet weak var goToRecordsButton: UIButton!
-    
     @IBOutlet weak var submarineFirstImage: UIImageView!
     @IBOutlet weak var submarineSecondImage: UIImageView!
     @IBOutlet weak var submarineThirdImage: UIImageView!

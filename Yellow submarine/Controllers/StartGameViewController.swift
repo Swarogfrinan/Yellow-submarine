@@ -3,8 +3,10 @@ import UIKit
 class StartGameViewController: UIViewController {
     
     // MARK: - Constans
+    
     let settingsVc = SettingsViewController()
     var timerModel = TimerModel()
+    
     // MARK: - IBOutlet
     @IBOutlet weak var playerSubmarineImage: UIImageView!
     @IBOutlet weak var boatImage: UIImageView!
@@ -62,13 +64,13 @@ private extension StartGameViewController {
     @objc private func swipeAction() {
         startPlayGame()
     }
-    private func setSubmarineFromSettings() {
+    func setSubmarineFromSettings() {
         guard let imageSubmarine = UserDefaults.standard.value(forKey: "imageSubmarine") as? String else  { return }
         if let image = settingsVc.loadImage(fileName: imageSubmarine) {
             playerSubmarineImage.image = image
         }
     }
-    private func setupAnimations() {
+    func setupAnimations() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [self] _ in
             playerSubmarineImage.setAfkAnimate(withDuration: 0.4)
             fishImage.setAfkAnimate(withDuration: 0.4)
@@ -81,13 +83,13 @@ private extension StartGameViewController {
         }
     }
     
-    private func showCracen() {
+    func showCracen() {
         Timer.scheduledTimer(withTimeInterval: 25, repeats: true) { _ in
             self.kracenImage.animateKracen(withDuration: 19, delay: 0, image: self.kracenImage)
-            }
+        }
     }
     
-    private func setupGesture() {
+    func setupGesture() {
         let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector (swipeAction))
         swipeGesture.direction = .right
         view.addGestureRecognizer(swipeGesture)

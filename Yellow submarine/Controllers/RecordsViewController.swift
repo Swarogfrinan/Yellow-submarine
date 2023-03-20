@@ -19,21 +19,19 @@ class RecordsViewController: UIViewController {
     }
     
     
-    //MARK: IBAction Methods
+    //MARK:  Methods
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
-   private func setupDelegate() {
+    private func setupDelegate() {
         tableView.delegate = self
         tableView.dataSource = self
     }
     
 }
-
-
-
+//MARK: UITableViewDataSource
 extension RecordsViewController : UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,6 +57,8 @@ extension RecordsViewController : UITableViewDataSource  {
         return cell
     }
 }
+
+//MARK: UITableViewDelegate
 
 extension RecordsViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

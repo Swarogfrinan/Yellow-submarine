@@ -13,14 +13,14 @@ extension GameViewController {
         switch directions {
         case .up:
             UIView.animate(withDuration: 0.5) {
-                if self.submarinePlayerView.frame.origin.y > -140 {
-                    self.submarinePlayerView.frame.origin.y -= distance
+                if self.userSubmarineView.frame.origin.y > -140 {
+                    self.userSubmarineView.frame.origin.y -= distance
                 }
             }
         case .down:
             UIView.animate(withDuration: 0.5) {
-                if self.submarinePlayerView.frame.origin.y < 280 {
-                    self.submarinePlayerView.frame.origin.y += distance
+                if self.userSubmarineView.frame.origin.y < 280 {
+                    self.userSubmarineView.frame.origin.y += distance
 
                 }
             }
